@@ -1,0 +1,46 @@
+<template>
+
+    <div style="margin: 2cm">
+
+        <lightning-card title="wellcome back ">
+
+            <div style="margin: 1cm;">
+
+                <lightning-input type="text" label="First Name"></lightning-input>
+
+                <lightning-input type="text" label="Last Name"></lightning-input>
+
+
+                <lightning-input type="email" label="Email" minlength="5"
+                    message-when-too-short="Your email address must be more 5 characters.">
+                </lightning-input>
+
+                <lightning-input type="password" label="Password">
+                </lightning-input>
+
+            </div>
+
+            <div style="margin-left: 2cm;">
+
+                <lightning-input style="margin-top: 25px " type="toggle" label="Remember me" unchecked>
+
+                </lightning-input>
+
+            </div>
+
+            <div style="margin-left: 300px;">
+
+                <lightning-button variant="brand" label="Log In" title="Primary action" onclick={handleClick}
+                    class="slds-var-m-left_x-small"></lightning-button>
+
+            </div>
+
+
+
+
+
+        </lightning-card>
+
+    </div>
+
+</template>

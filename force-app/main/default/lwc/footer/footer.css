@@ -1,0 +1,22 @@
+/* footer Section */
+.footer {
+    background-color:#1c1d21 ;
+    text-align: center;
+    padding: 40px 0 15px;
+}
+.contact-item {width: 30%; float: left; text-align: center; margin-bottom: 25px;}
+.contact-item i {color: var(--maincolor);}
+.contact-item h3 {
+    margin: 10px 0;
+    color: #fff;
+}
+.contact-item span {color: #999;}
+.contact-parg p {
+    color: #999;
+}
+hr {
+    margin: 0 0 15px 0;
+}
+lightning-icon {
+    --sds-c-icon-color-background: #6195FF;
+}

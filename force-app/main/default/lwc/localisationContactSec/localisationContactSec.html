@@ -1,0 +1,83 @@
+<template>
+    <lightning-card class="box-shadow: 0 2px 5px rgb(0 0 0 / 14%)">
+        <div class="contact-sec">
+            <div class="slds-p-around_medium">
+                <h1>Nous Contacter</h1>
+                <br />
+                <br />
+                <div class="slds-form" role="list">
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                <label class="slds-form-element__label" for="single-form-element-id-02">Nom<abbr
+                                        class="slds-required" title="required">*</abbr></label>
+                                <div class="slds-form-element__control">
+                                    <input type="text" id="single-form-element-id-02" class="slds-input" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form__item" role="listitem">
+                            <div class="slds-form-element slds-form-element_horizontal slds-is-editing">
+                                <label class="slds-form-element__label" for="single-form-element-id-03">Prénom<abbr
+                                        class="slds-required" title="required">*</abbr></label>
+                                <div class="slds-form-element__control">
+                                    <input type="text" id="single-form-element-id-03" class="slds-input" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div
+                                class="slds-form-element slds-form-element_horizontal slds-is-editing slds-form-element_1-col">
+                                <label class="slds-form-element__label" for="single-form-element-id-04">Email<abbr
+                                        class="slds-required" title="required">* </abbr></label>
+                                <div class="slds-form-element__control">
+                                    <input type="text" id="single-form-element-id-04" class="slds-input" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form__row">
+                        <div class="slds-form__item" role="listitem">
+                            <div
+                                class="slds-form-element slds-form-element_horizontal slds-is-editing slds-form-element_1-col">
+                                <label class="slds-form-element__label" for="single-form-element-id-05">Message<abbr
+                                        class="slds-required" title="required">* </abbr></label>
+                                <div class="slds-form-element__control">
+                                    <textarea id="single-form-element-id-05"
+                                        placeholder="Veuillez taper votre réclamation..."
+                                        class="slds-textarea"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form-element slds-form-element_horizontal slds-is-editing slds-form-element_1-col">
+                        <span class="slds-form-element__label" id="file-selector-primary-label-9">Pièce Jointe</span>
+                        <div class="slds-form-element__control">
+                            <div class="slds-file-selector slds-file-selector_files">
+                                <div class="slds-file-selector__dropzone">
+                                    <input type="file" class="slds-file-selector__input slds-assistive-text"
+                                        id="file-upload-input-11"
+                                        aria-labelledby="file-selector-primary-label-9 file-selector-secondary-label10" />
+                                    <label class="slds-file-selector__body" for="file-upload-input-11"
+                                        id="file-selector-secondary-label10">
+                                        <span class="slds-file-selector__button slds-button slds-button_neutral">
+                                            <svg class="slds-button__icon slds-button__icon_left" aria-hidden="true">
+                                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#upload">
+                                                </use>
+                                            </svg>Upload Files</span>
+                                        <span class="slds-file-selector__text slds-medium-show">or Drop Files</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-sec">
+                        <button class="slds-button slds-button_brand">ENVOYER</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,74 @@
+/*General*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container {
+    width: 80%;
+    margin: auto;
+}
+template {
+    font-family: 'Varela Round', sans-serif;
+}
+h1,h2,h3,h4,h5,h6 {font-family: montserrat,sans-serif;}
+button{font-family: inherit}
+a{text-decoration: none;} 
+ul{list-style: none;}
+/*Hover effect*/
+.ltr-effect {
+    position:relative 
+}
+.ltr-effect:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: -1;
+}
+.ltr-effect:after {
+    width: 0;
+    transition: width .5s ease-in-out;
+}
+.ltr-effect:hover:after {width: 100%;}
+.ltr-effect:hover .offer-item-title {color: #FFF;}
+/* offer Section*/
+.offer-item {
+    padding: 30px 15px 30px 70px;
+    border: 1px solid #DDD;
+    position: relative;
+    max-width: 30%;
+    min-width: 30%;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 14%);
+    border-radius: 6px;
+}
+.offer-item.mg {
+    margin: 0 5%;
+}
+.offer-item-title {
+    text-transform: capitalize;
+    transition: color .5s ease-in-out;
+}
+.offer-item-desc {
+    line-height: 1.6;
+    color:#999 ;
+}
+.mg-b-20 {
+    margin-bottom: 20px;
+}
+.mg-b-15 {
+    margin-bottom: 15px;
+}
+.slds-grid.slds-gutters.SecRow {
+    margin-top: 20px;
+}
+lightning-icon {
+    display: inline-block;
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    --lwc-colorTextIconDefault: #6195FF;
+}

@@ -1,0 +1,18 @@
+.content-header,
+.content-parg {
+    border: 1px solid #eee;
+    padding: 25px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+.content-header {
+    border-top-left-radius: 6px;
+    border-top-left-radius: 6px;
+}
+.content-parg {
+    border-bottom-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.content-header h1 {
+    font-size: 20px;
+}

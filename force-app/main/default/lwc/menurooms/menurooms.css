@@ -1,0 +1,64 @@
+
+
+.img-hover-zoom {
+    width: 50%; /* Modify this according to your need */
+    overflow: hidden; /* Removing this will break the effects */
+    position: relative;
+  }
+
+/* Quick-zoom Container */
+.img-hover-zoom img {
+    transform-origin: 50% 50%;
+    transition: transform .2s ease-in;
+  }
+  
+  /* The Transformation */
+  .img-hover-zoom:hover img {
+    transform: scale(1.1);
+  }
+
+  .bottom {
+      position: absolute;
+      left: 100px;
+      bottom: 100px;
+      color: white;
+      font-size: 20px;
+  }
+
+  .line-button {
+    color: #919191;
+    font-size: 16px;
+    font-weight: 400;
+    display: inline-block;
+    position: relative;
+    padding-right: 5px;
+    padding-bottom: 2px;
+}
+
+.img-hover-zoom:hover img  {
+
+    transform: scale(1.2);
+    
+  }
+
+.img-hover-zoom:hover a {
+visibility: visible;
+
+}
+
+.test {
+    color: red;
+    font-size: 18px;
+    position: absolute;
+    left: 200px; 
+    bottom: 200px;
+    visibility: hidden;
+    transform: translateY(-40px);
+    
+}
+
+.test:hover {
+  color: #007bff;
+
+}
+

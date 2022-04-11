@@ -1,0 +1,190 @@
+<template>
+    <lightning-progress-indicator current-step={currentStep} type="base" variant="base">
+        <lightning-progress-step label="Informations personnelles" value="1"></lightning-progress-step>
+        <lightning-progress-step label="Reservation Details" value="2"></lightning-progress-step>
+    </lightning-progress-indicator>
+    <div></div>
+    <div>
+        <lightning-messages></lightning-messages>
+
+        <br />
+        <br />
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+            <div class="stepOne">
+                <input type="hidden" name="oid" value="00D8d000002bqr7" />
+                <input type="hidden" name="retURL" value="/thank-you" />
+                <div class="campo">
+                    <label for="salutation">Civilité</label><select id="salutation" name="salutation">
+                        <option value="">--None--</option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Ms.">Ms.</option>
+                        <option value="Mrs.">Mrs.</option>
+                    </select><br />
+                </div>
+                <fieldset class="grupo">
+                    <div class="campo">
+                        <label for="first_name">First Name</label>
+                        <input id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br />
+                    </div>
+
+                    <div class="campo"><label for="last_name">Last Name</label><input id="last_name" maxlength="80"
+                            name="last_name" size="20" type="text" /><br>
+
+                    </div>
+                </fieldset>
+                <fieldset class="grupo">
+                    <div class="campo">
+                        Date of birth:<span class="dateInput dateOnlyInput"><input id="00N8d00000B59Rw"
+                                name="00N8d00000B59Rw" size="12" type="text" /></span><br>
+
+                    </div>
+                    <div class="campo">
+                        <label for="00N8d000008nhpu">Age</label>
+                        <span class="dateInput dateOnlyInput">
+                            <input id="00N8d000008nhpu" name="00N8d000008nhpu" size="12" type="text"
+                                class=".slds-datepicker" /></span><br />
+                    </div>
+                </fieldset>
+
+                <fieldset class="grupo">
+                    <div class="campo">
+                        <label for="email">Email</label><input id="email" maxlength="80" name="email" size="20"
+                            type="text" /><br>
+
+                    </div>
+                    <div class="campo">
+                        <label for="phone">Phone</label><input id="phone" maxlength="40" name="phone" size="20"
+                            type="text" /><br>
+                    </div>
+                </fieldset>
+                <fieldset class="grupo">
+                    <div class="campo">
+                        Cin:<input id="00N8d00000As9VG" maxlength="8" name="00N8d00000As9VG" size="20"
+                            type="text" /><br>
+
+                    </div>
+                    <div class="campo">
+                        <label for="company">Company</label><input id="company" maxlength="40" name="company" size="20"
+                            type="text" /><br>
+
+                    </div>
+                </fieldset>
+                <fieldset class="grupo">
+                    <div class="campo">
+                        <label for="city">City</label><input id="city" maxlength="40" name="city" size="20"
+                            type="text" /><br>
+                    </div>
+                    <div class="campo">
+                        <label for="state">State/Province</label><input id="state" maxlength="20" name="state" size="20"
+                            type="text" /><br>
+                    </div>
+                </fieldset>
+
+
+
+                <lightning-button variant="brand" label="Next" class="next" onclick={goToStepTwo}></lightning-button>
+            </div>
+
+            <div class="stepTwo slds-hide">
+                <div>
+                    <br />
+                    <div>
+                        <p id="demo">{text}</p>
+                    </div>
+                    <fieldset class="body">
+                        <div>
+                            <hr />
+                            <div style="margin-bottom: 40px">
+                                <nav class="container">
+                                    <div>
+                                        <button type="button" onclick={showcons} value="Consommation">
+                                            <lightning-icon icon-name="utility:money" alternative-text="money"
+                                                title="money"></lightning-icon><br />
+                                            <span> Consommation </span>
+                                        </button>
+                                    </div>
+
+                                    <div>
+                                        <button type="button" onclick={showcons} value="logement">
+                                            <lightning-icon icon-name="utility:tour" alternative-text="tour"
+                                                title="tour">
+                                            </lightning-icon><br />
+                                            <span>
+                                                Aménagement <br />
+                                                logement
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button type="button" onclick={showvoiture} value="voiture">
+                                            <lightning-icon icon-name="utility:travel_and_places"
+                                                alternative-text="travel_and_places" title="travel_and_places">
+                                            </lightning-icon><br />
+
+                                            <span> Voiture </span>
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button type="button" onclick={showcons} value="immobilier" id="immobilier">
+                                            <lightning-icon icon-name="utility:home" alternative-text="home"
+                                                title="home">
+                                            </lightning-icon><br />
+                                            <span> Immobilier </span>
+                                        </button>
+                                    </div>
+                                </nav>
+                            </div>
+
+                            <div class="campo">
+                                <label for="00N8d000006itSq">Type de credit</label>
+                                <select id="00N8d000006itSq" name="00N8d000006itSq" title="loan_type">
+                                    <option value="">--None--</option>
+                                    <option value="Consommation">Consommation</option>
+                                    <option value="Aménagement logement">
+                                        Aménagement logement
+                                    </option>
+                                    <option value="Voiture">Voiture</option>
+                                    <option value="Immobilier">Immobilier</option>
+                                </select><br />
+                            </div>
+
+                            <div class="campo">
+                                <label for="00N8d000006itSl-form-element-id-11">Montant credit</label>
+                                <input id="00N8d000006itSl" name="00N8d000006itSl" size="20" type="text" /><br />
+                            </div>
+                            <div class="campo">
+                                <label class="slds-form-element__label" for="single-form-element-id-12">Durée de
+                                    remboursement (Ans)</label>
+                                <input id="00N8d000006itSv" name="00N8d000006itSv" size="20" type="text" /><br />
+                            </div>
+                            <div class="campo">
+                                <p style="font-size: bold">
+                                    Il s’agit d’une simulation à titre indicatif, l’échéance sera
+                                    calculée sur la base des conditions qui seront validées le
+                                    jour de la décision .
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <lightning-button variant="brand" label="Previous" onclick={goBackToStepOne} class="previous">
+                </lightning-button>
+                <lightning-button label="Save" type="submit" class="save" variant="brand">
+                </lightning-button>
+            </div>
+        </form>
+
+        <!--
+            <div class="stepThree slds-hide">
+                <br> <br />
+                <lightning-button variant="brand" label="Previous" onclick={goBackToStepTwo} class="previous">
+                </lightning-button>
+                <input type="submit" value="Fire away">
+                                <lightning-button variant="brand" class="next" label="Next" onclick={goToStepThree}></lightning-button>
+
+            </div>
+        
+
+-->
+    </div>
+</template>
