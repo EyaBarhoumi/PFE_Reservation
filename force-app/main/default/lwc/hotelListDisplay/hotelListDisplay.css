@@ -1,0 +1,8 @@
+.hotel-tile {
+    border: 1px solid #d2955d;
+    border-radius: .25rem;
+    display: block;
+}
+.hotel-silhouette {
+    height: 100px;
+}

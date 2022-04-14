@@ -1,0 +1,21 @@
+<template>
+    <!-- Start hotel tile -->
+    <lightning-card title={hotel.Name} class="hotel-tile">
+        <div slot="actions">
+            <lightning-button-icon icon-name="utility:search" icon-class="hotel-tile-button" variant="bare"
+                alternative-text="Open record" onclick={handleOpenRecordClick}>
+            </lightning-button-icon>
+        </div>
+        <div class="slds-p-horizontal_small">
+            <div class="slds-media">
+                <div class="slds-media__figure">
+
+                </div>
+                <div class="slds-media__body">
+                    <p class="slds-m-bottom_xx-small">{hotel.Description__c}</p>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+    <!-- End hotel tile -->
+</template>

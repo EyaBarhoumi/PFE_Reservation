@@ -1,0 +1,169 @@
+@media (min-width: 768px) {
+  .col-md-12 {
+    -webkit-box-flex: 0;
+    /* -ms-flex: 0 0 100%; */
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+div {
+  display: block;
+}
+*,
+*::before,
+*::after {
+  /* -webkit-box-sizing: border-box; */
+  box-sizing: border-box;
+}
+
+.mb-4,
+.my-4 {
+  margin-bottom: 1.5rem !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  line-height: 1.5;
+  color: #000000;
+  font-weight: 400;
+  font-family: "Playfair Display", Arial, serif;
+}
+
+h2,
+.h2 {
+  font-size: 2rem;
+}
+
+h2 {
+  display: block;
+  /* font-size: 1.5em; */
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.no-js .owl-carousel,
+.owl-carousel.owl-loaded {
+  display: block;
+}
+.owl-carousel {
+  position: relative;
+}
+
+.owl-carousel {
+  /* display: none; */
+  width: 100%;
+  z-index: 1;
+}
+.owl-carousel,
+.owl-carousel .owl-item {
+  -webkit-tap-highlight-color: transparent;
+  /* position: relative; */
+}
+
+.owl-carousel .owl-stage-outer {
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* element.style {
+    transform: translate3d(-1460px, 0px, 0px);
+    transition: all 0s ease 0s;
+    width: 5110px;
+} */
+
+/* .owl-carousel .owl-stage {
+    position: relative;
+    -ms-touch-action: pan-Y;
+    touch-action: manipulation;
+    -moz-backface-visibility: hidden;
+} */
+
+.mb-5,
+.my-5 {
+  margin-bottom: 3rem !important;
+}
+.mt-4,
+.my-4 {
+  margin-top: 1.5rem !important;
+}
+
+.col-md-12 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.mb-5,
+.my-5 {
+  margin-bottom: 3rem !important;
+}
+.mt-5,
+.my-5 {
+  margin-top: 3rem !important;
+}
+
+.room-single ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+.room-single ul li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.room-single ul {
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .ml-md-5,
+  .mx-md-5 {
+    margin-left: 3rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .d-md-flex {
+    /* display: -webkit-box !important;
+    display: -ms-flexbox !important; */
+    display: flex !important;
+  }
+}
