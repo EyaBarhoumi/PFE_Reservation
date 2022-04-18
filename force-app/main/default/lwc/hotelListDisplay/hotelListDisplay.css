@@ -1,8 +1,294 @@
-.hotel-tile {
-    border: 1px solid #d2955d;
-    border-radius: .25rem;
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  div {
+      display: block;
+  }
+  @media (min-width: 1200px){
+  .container {
+      max-width: 1140px;
+  }
+  }
+  
+  .pb-3,
+  .py-3 {
+    padding-bottom: 1rem !important;
+  }
+  
+  .mb-5,
+  .my-5 {
+    margin-bottom: 3rem !important;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  /* .ftco-animate {
+      opacity: 0;
+      /* visibility: hidden; } */
+  
+  .text-center {
+    text-align: center !important;
+  }
+  
+  .col-md-7 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  /* .fadeInUp {
+      animation-name: fadeInUp;
+    } */
+  
+  /* .ftco-animated {
+      animation-duration: 0.5s;
+    }
+     */
+  .heading-section h2 {
+    font-size: 38px;
+    font-weight: 400;
+    position: relative;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5 {
+    line-height: 1.5;
+    color: #000000;
+    /* font-weight: 400; */
+    font-family: "Playfair Display", Arial, serif;
+  }
+  
+  h2 {
     display: block;
-}
-.hotel-silhouette {
-    height: 100px;
-}
+    /* font-size: 1.5em; */
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    /* font-weight: bold; */
+  }
+  
+  .heading-section h2:before {
+    width: 80px;
+    height: 2px;
+    bottom: -19px;
+  }
+  
+  .heading-section h2:before {
+    /* width: 100px;
+        height: 2px; */
+    position: absolute;
+    /* bottom: -15px; */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: #8d703b;
+    content: "";
+  }
+  
+  .heading-section h2:after {
+    width: 100px;
+    height: 2px;
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: #8d703b;
+    content: "";
+  }
+  
+  .room {
+    display: block;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .room .img {
+    /* display: block; */
+    height: 250px;
+  }
+  
+  .insta-img,
+  .room-img,
+  .hero-wrap,
+  .img,
+  .blog-img,
+  .user-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  
+  .d-flex {
+    display: flex !important;
+  }
+  
+  a {
+    text-decoration: none;
+    background-color: transparent;
+    transition: 0.3s all ease;
+    color: #8d703b;
+  }
+  
+  .room .icon {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    opacity: 0;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .align-items-center {
+    -webkit-box-align: center !important;
+    align-items: center !important;
+  }
+  
+  .justify-content-center {
+    -webkit-box-pack: center !important;
+    justify-content: center !important;
+  }
+  
+  .room .text {
+    border: 1px solid #e6e6e6;
+    border-top: 1px solid transparent;
+    background: #fff;
+    position: relative;
+  }
+  .text-center {
+    text-align: center !important;
+  }
+  
+  .p-3 {
+    padding: 1rem !important;
+  }
+  
+  .room .text h3 {
+    font-size: 22px;
+    /* margin-bottom: 5px; */
+  }
+  
+  .mb-3,
+  .my-3 {
+    margin-bottom: 1rem !important;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5 {
+    line-height: 1.5;
+    color: #000000;
+    font-weight: 400;
+    font-family: "Playfair Display", Arial, serif;
+  }
+  
+  .room .text h3 a {
+    color: #000000;
+  }
+  
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+  
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+  }
+  
+  .pt-1,
+  .py-1 {
+    padding-top: 0.25rem !important;
+  }
+  .room .text .btn-custom {
+    color: #000000;
+  }
+  
+  .col-sm,
+  .col-md-6,
+  .col-lg-4 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .room .text span.price {
+      font-size: 26px;
+      color: #000000;
+      position: relative;
+  }
+  
+  
+  .room .text span.price:after {
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 2px;
+      content: '';
+      background: #d1ba90;
+  }
+  
+  .room .text span.per {
+      color: #b3b3b3;
+  }
+  
+  
+  @media (min-width: 768px){
+  .col-md-6 {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+      flex: 0 0 50%;
+      max-width: 50%;
+  }}

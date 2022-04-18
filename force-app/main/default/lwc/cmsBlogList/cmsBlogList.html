@@ -1,0 +1,24 @@
+<template>
+    <h2>{pageTitle}</h2>
+    <div class="blog-list">
+        <template for:each={hotels} for:item="hotel">
+            <div key={hotel.key} class="blog-tile">
+                <div
+                    class="slds-grid slds-grid_vertical slds-gutters_small"
+                    onclick={handleClick}
+                    data-id={hotel.key}
+                >
+                    <div class="slds-col blog-image">
+                        <img src={hotel.Picture_Url__c} alt={hotel.imageAltText} />
+                    </div>
+                    <div class="slds-col">
+                        <h4>{hotel.Name}</h4>
+                    </div>
+                    <div class="slds-col slds-var-p-vertical_small">
+                        <p>{hotel.Description__c}</p>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>
