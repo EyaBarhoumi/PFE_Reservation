@@ -11,21 +11,16 @@
           <template for:each={hotels} for:item="hotel">
           <div  key={hotel.Id} class="col-sm col-md-6 col-lg-4 ftco-animate">  
             <div class="room">
-              <a
-                href="rooms.html"
-                class="img d-flex justify-content-center align-items-center"
-                style="
-                  background-image: url(https://images.unsplash.com/photo-1526786220381-1d21eedf92bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
-                "
-              >
-                <div
+             
+              <img   data-id={hotel.Id} key={hotel.Id} onclick={handleRoomDetail} src="https://cdn.pixabay.com/photo/2020/01/15/18/01/room-4768551_960_720.jpg" alt="">
+                <!-- <div
                   class="icon d-flex justify-content-center align-items-center"
                 >
                   <span class="icon-search2"></span>
                 </div>
-              </a>
+              </a> -->
               <div class="text p-3 text-center">
-                <h3 class="mb-3"><a href="rooms.html">Suite Room</a></h3>
+                <h3 class="mb-3"> <a href="rooms.html">Suite Room</a></h3>
                 <p>
                   <span class="price mr-2">{hotel.Name}</span>
                   <span class="per">per night</span>

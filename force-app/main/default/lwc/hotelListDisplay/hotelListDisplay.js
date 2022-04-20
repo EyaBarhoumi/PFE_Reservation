@@ -32,7 +32,7 @@ export default class HotelListDisplay extends NavigationMixin(LightningElement) 
       type: "standard__webPage",
 
       attributes: {
-        url: `/RoomDetailPage` }
+        url: `/roomdetailpage` }
     });
     console.log(event.target.dataset.id);
     console.log("c quoi ça ");

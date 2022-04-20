@@ -1,6 +1,6 @@
 <template>
     <div class="col-md-12 ftco-animate">
-        <h2 class="mb-4">Family Room</h2>
+        <h2 class="mb-4">Family Room </h2>
         <div class="single-slider owl-carousel">
             <div class="item">
                 <div class="room-img" style="background-image: url(https://cdn.pixabay.com/photo/2017/05/31/10/23/manor-house-2359884_960_720.jpg);"></div>
@@ -13,18 +13,32 @@
             </div>
         </div>
     </div>
-    <div class="col-md-12 room-single mt-4 mb-5 ftco-animate">
+
+   
+    <div class="col-md-12 room-single mt-4 mb-5 ftco-animate ">
+        <div  for:each={Hotels} for:item="hotel"  key={hotel.Id} > 
+        <h1> </h1>
+        <img src={hotel.Hotel_Picture_Url__c} alt="">
               <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
               <div class="d-md-flex mt-5 mb-5">
                   <ul class="list">
                       <li><span>Max:</span> 3 Persons</li>
                       <li><span>Size:</span> 45 m2</li>
+                      <li><span>Name</span> {hotel.Name} </li>
                   </ul>
                   <ul class="list ml-md-5">
                       <li><span>View:</span> Sea View</li>
                       <li><span>Bed:</span> 1</li>
                   </ul>
               </div>
-              <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-    </div>
+              <lightning-map map-markers={mapMarkers}
+              zoom-level={zoomLevel}
+               list-view={listView}
+               options={mapOptions}
+               show-footer
+               >
+             </lightning-map>
+              <p> {hotel.Description__c}</p>
+            </div> 
+            </div>       
 </template>
