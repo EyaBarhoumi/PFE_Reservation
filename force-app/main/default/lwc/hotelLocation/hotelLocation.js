@@ -1,9 +1,10 @@
-import { LightningElement, api, wire , track} from "lwc";
+import { LightningElement, api, wire, track } from "lwc";
 import { getRecord, getFieldValue } from "lightning/uiRecordApi";
 import { CurrentPageReference } from "lightning/navigation";
 import getHotelByID from "@salesforce/apex/HotelController.getHotelByID";
 
- //Set Hotel object fields
+//Set Hotel object fields
+
 // const NAME_FIELD = "Hotel__c.Name";
 // const LOCATION_LATITUDE_FIELD = "Hotel__c.Hotel_Location__Latitude__s";
 // const LOCATION_LONGITUDE_FIELD = "Hotel__c.Hotel_Location__Longitude__s";
@@ -13,17 +14,16 @@ import getHotelByID from "@salesforce/apex/HotelController.getHotelByID";
 //   LOCATION_LONGITUDE_FIELD
 // ];
 
-
 const hotelFields = [
-	'Hotel__c.Name',
-	'Hotel__c.Hotel_Location__Latitude__s',
-	'Hotel__c.Hotel_Location__Longitude__s'
+  "Hotel__c.Name",
+  "Hotel__c.Hotel_Location__Latitude__s",
+  "Hotel__c.Hotel_Location__Longitude__s"
 ];
 
 export default class HotelLocation extends LightningElement {
   @api recordId;
-  name;
-  mapMarkers = [];
+  @track name;
+  @track mapMarkers = [];
   @track HotelId = "";
 
   @wire(CurrentPageReference)
@@ -33,7 +33,6 @@ export default class HotelLocation extends LightningElement {
     }
   }
 
-
   @wire(getHotelByID, { HotelId: "$HotelId", fields: hotelFields })
   loadHotels({ error, data }) {
     if (error) {
@@ -42,19 +41,20 @@ export default class HotelLocation extends LightningElement {
       console.log("error");
       console.log("kolli chneya l'erreur ");
     } else if (data) {
-      console.log("mchet ?")
+      console.log("mchet ?");
       // Get Hotel data
+
       console.log(data);
-      
-      this.name = data.hotelFields.Name.value;
+      this.name = data.fields.Name.value;
       console.log(this.name);
-			const Latitude = data.hotelFields.Hotel_Location__Latitude__s.value;
-			const Longitude = data.hotelFields.Hotel_Location__Longitude__s.value;
-     
+      const Latitude = data.fields.Hotel_Location__Latitude__s.value;
+      const Longitude = data.fields.Hotel_Location__Longitude__s.value;
+      console.log(Latitude);
+
       // Get Hotel data
+
       // this.name = getFieldValue(data, NAME_FIELD);
       // console.log(this.name);
-
       // const Latitude = getFieldValue(data, LOCATION_LATITUDE_FIELD);
       // const Longitude = getFieldValue(data, LOCATION_LONGITUDE_FIELD);
       // Transform Hotel data into map markers
