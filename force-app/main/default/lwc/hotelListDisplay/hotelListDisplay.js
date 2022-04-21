@@ -1,21 +1,21 @@
-import { LightningElement, track, wire, api } from "lwc";
+import { LightningElement, api, track, wire } from 'lwc';
+import getAllHotels from "@salesforce/apex/HotelController.getAllHotels";
 import { NavigationMixin, CurrentPageReference } from "lightning/navigation";
 
-import getAllHotels from "@salesforce/apex/HotelController.getAllHotels";
-import searchHotels from "@salesforce/apex/HotelController.searchHotels";
-
 export default class HotelListDisplay extends NavigationMixin(LightningElement) {
-  @api pageTitle;
-  @track searchTerm = "";
-  @track hotels;
-  @wire(CurrentPageReference) pageRef;
-  @wire(searchHotels, { searchTerm: "$searchTerm" })
-  hotels;
-  error;
+  @track error;
+  @track hotels = "";
 
   connectedCallback() {
     this.loadHotels();
   }
+  //   loadHotels(result) {
+  //     this.hotels = result;
+  //     if (result.data) {
+  //       fireEvent(this.pageRef, "hotelListUpdate", result.data);
+  //     }
+  //   }
+
   loadHotels() {
     getAllHotels()
       .then((result) => {
@@ -27,16 +27,16 @@ export default class HotelListDisplay extends NavigationMixin(LightningElement) 
       });
   }
 
-  handleRoomDetail(event) {
+  handleHotelDetail(event) {
     this[NavigationMixin.Navigate]({
       type: "standard__webPage",
 
       attributes: {
-        url: `/roomdetailpage` }
+        url: `/hoteldetailpage/?blogId=${event.target.dataset.id}`
+      }
     });
     console.log(event.target.dataset.id);
     console.log("c quoi ça ");
   }
-
  
 }

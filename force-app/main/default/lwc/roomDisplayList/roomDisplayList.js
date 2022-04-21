@@ -1,12 +1,12 @@
 import { LightningElement, api, track, wire } from 'lwc';
-import getAllHotels from "@salesforce/apex/HotelController.getAllHotels";
+import getAllRooms from "@salesforce/apex/RoomController.getAllRooms";
 import { NavigationMixin, CurrentPageReference } from "lightning/navigation";
 export default class RoomDisplayList extends NavigationMixin(LightningElement) {
   @track error;
-  @track hotels = "";
+  @track rooms = "";
 
   connectedCallback() {
-    this.loadHotels();
+    this.loadRooms();
   }
   //   loadHotels(result) {
   //     this.hotels = result;
@@ -15,10 +15,10 @@ export default class RoomDisplayList extends NavigationMixin(LightningElement) {
   //     }
   //   }
 
-  loadHotels() {
-    getAllHotels()
+  loadRooms() {
+    getAllRooms()
       .then((result) => {
-        this.hotels = result;
+        this.rooms = result;
       })
 
       .catch((error) => {

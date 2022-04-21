@@ -1,27 +1,27 @@
 import { LightningElement, wire, track } from "lwc";
 import { CurrentPageReference } from "lightning/navigation";
-import getHotelByID from "@salesforce/apex/HotelController.getHotelByID";
+import getRoomByID from "@salesforce/apex/RoomController.getRoomByID";
 
-export default class HotelDetailDisplay extends LightningElement {
-  @track HotelId = "";
+export default class RoomDetailDisplay extends LightningElement {
+  @track RoomId = "";
 
   @wire(CurrentPageReference)
   pageReference({ state }) {
     if (state && state.blogId) {
-      this.HotelId = state.blogId;
+      this.RoomId = state.blogId;
     }
   }
 
-  Hotels;
-  @wire(getHotelByID, { HotelId: "$HotelId" }) HotelById({ data, error }) {
+  Rooms;
+  @wire(getRoomByID, { RoomId: "$RoomId" }) roomById({ data, error }) {
     if (data) {
-      this.Hotels = data;
+      this.Rooms = data;
       console.log(data);
       console.log("data");
     } else if (error) {
       console.log(error);
       console.log("error");
-      console.log(Hotels);
+      console.log(Rooms);
     }
   }
 }

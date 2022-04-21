@@ -3,37 +3,39 @@
     <div class="container">
       <div class="row justify-content-center mb-5 pb-3">
         <div class="col-md-7 heading-section text-center ftco-animate">
-          <h2 class="mb-4">Our Rooms</h2>
+          <h2 class="mb-4">Our Hotels</h2>
         </div>
       </div>
       <div class="row">
         <template if:true={hotels}>
           <template for:each={hotels} for:item="hotel">
-            <div key={hotel.Id} class="col-sm col-md-6 col-lg-4 ftco-animate">
-              <div class="room">
-                <!-- <a href="rooms.html" class="img d-flex justify-content-center align-items-center" style="
-                  background-image: url(https://images.unsplash.com/photo-1526786220381-1d21eedf92bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
-                "> -->
-                <img src="https://images.unsplash.com/photo-1526786220381-1d21eedf92bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="">
-                  <div class="icon d-flex justify-content-center align-items-center">
-                    <span class="icon-search2"></span>
-                  </div>
-                </a>
-                <div class="text p-3 text-center">
-                  <h3 class="mb-3">Suite Room</h3>
-                  <p>
-                    <span class="price mr-2">{hotel.Name}</span>
-                    <span class="per">per night</span>
-                  </p>
-                  <hr />
-                  <p data-id={hotel.Id} key={hotel.Id} class="pt-1" onclick={handleRoomDetail}>
-                    View Room Details
-                    <span class="icon-long-arrow-right"></span>
-                  </p>
+          <div  key={hotel.Id} class="col-sm col-md-6 col-lg-4 ftco-animate">  
+            <div class="room">
+             
+              <img   data-id={hotel.Id} key={hotel.Id} onclick={handleHotelDetail} src="https://cdn.pixabay.com/photo/2020/01/15/18/01/room-4768551_960_720.jpg" alt="">
+                <!-- <div
+                  class="icon d-flex justify-content-center align-items-center"
+                >
+                  <span class="icon-search2"></span>
                 </div>
+              </a> -->
+              <div class="text p-3 text-center">
+                <h3 class="mb-3"> <a href="rooms.html">Suite Room</a></h3>
+                <p>
+                  <span class="price mr-2">{hotel.Name}</span>
+                  <span class="per">per night</span>
+                </p>
+                <hr />
+                <p class="pt-1">
+                  <a href="room-single.html" class="btn-custom"
+                    >View Room Details
+                    <span class="icon-long-arrow-right"></span
+                  ></a>
+                </p>
               </div>
-
             </div>
+        
+        </div>
           </template>
         </template>
       </div>
