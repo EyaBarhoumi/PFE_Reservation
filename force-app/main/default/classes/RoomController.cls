@@ -30,6 +30,14 @@ public with sharing class RoomController {
     }
 
     //Get Rooms By hotel 
+    @AuraEnabled(Cacheable=true)
+    public static List<Room__c> getRoomsByHotelID( Id HotelId){
+        return [
+            SELECT Name, RoomCapacity__c ,RoomDescription__c,RoomNumber__c,RoomPictureUrl__c,RoomPrice__c,RoomStatus__c,RoomView__c,RoomType__c,Hotel__c
+            FROM Room__c
+            WHERE Hotel__c = :HotelId];
+    }
+
     //Get Rooms by status 
     
 

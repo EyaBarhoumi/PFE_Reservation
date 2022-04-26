@@ -7,8 +7,8 @@ export default class HotelDetailDisplay extends LightningElement {
 
   @wire(CurrentPageReference)
   pageReference({ state }) {
-    if (state && state.blogId) {
-      this.HotelId = state.blogId;
+    if (state && state.hoId) {
+      this.HotelId = state.hoId;
     }
   }
 

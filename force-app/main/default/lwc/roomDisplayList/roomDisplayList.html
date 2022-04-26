@@ -12,7 +12,7 @@
           <div  key={room.Id} class="col-sm col-md-6 col-lg-4 ftco-animate">  
             <div class="room">
              
-              <img   data-id={room.Id} key={room.Id} onclick={handleRoomDetail} src="https://cdn.pixabay.com/photo/2020/01/15/18/01/room-4768551_960_720.jpg" alt="">
+              <img   data-id={room.Id} key={room.Id} onclick={handleRoomDetail} src={room.RoomPictureUrl__c} alt="">
                 <!-- <div
                   class="icon d-flex justify-content-center align-items-center"
                 >
@@ -22,7 +22,7 @@
               <div class="text p-3 text-center">
                 <h3 class="mb-3"> <a href="rooms.html">{room.Name}</a></h3>
                 <p>
-                  <span class="price mr-2">{room.RoomPrice__c}</span>
+                  <span class="price mr-2"> $ {room.RoomPrice__c}</span>
                   <span class="per"> per night</span>
                 </p>
                 <hr />

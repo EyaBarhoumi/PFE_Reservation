@@ -9,7 +9,7 @@ export default class CreateLeadForm extends LightningElement {
 
     this.recId = event.detail.id;
 
-    this.showToast("Information", "info", "You can upload your Cv now!!!");
+    this.showToast("Information", "info", "You can upload your CIN picture  now!!!");
   }
 
   showToast(title, variant, message) {
@@ -74,4 +74,14 @@ export default class CreateLeadForm extends LightningElement {
       });
     }
   }
+//   goToStepTwo() {
+//     this.currentStep = '2';
+
+//     this.template.querySelector('div.stepOne').classList.add('slds-hide');
+//     this.template
+//         .querySelector('div.stepTwo')
+//         .classList.remove('slds-hide');
+// }
+
+
 }
