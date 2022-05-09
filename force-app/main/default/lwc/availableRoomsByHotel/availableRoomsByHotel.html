@@ -11,14 +11,10 @@
             <template for:each={Rooms} for:item="room">
             <div  key={room.Id} class="col-sm col-md-6 col-lg-4 ftco-animate">  
               <div class="room">
-               
-                <img   data-id={room.Id} key={room.Id} onclick={handleRoomDetail} src={room.RoomPictureUrl__c} alt="">
-                  <!-- <div
-                    class="icon d-flex justify-content-center align-items-center"
-                  >
-                    <span class="icon-search2"></span>
-                  </div>
-                </a> -->
+              <div class="card">
+                <img   data-id={room.Id} key={room.Id} onclick={handleRoomDetail} src={room.RoomPictureUrl__c} alt="" class="card-image">
+                <h3 class="card-title">{room.Name}</h3>
+              </div>
                 <div class="text p-3 text-center">
                   <h3 class="mb-3"> <a href="rooms.html">{room.Name}</a></h3>
                   <p>

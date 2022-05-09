@@ -1,0 +1,32 @@
+.wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.input {
+  width: 10rem;
+  height: 2.5rem;
+  padding: 00.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #585858;
+  color: #f9f9f9;
+}
+.validation {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translate(5rem, -50%);
+  opacity: 0;
+  color: #f9f9f9;
+  transition: all 0.35s;
+}
+input:valid {
+  border-color: #55d688;
+}
+input:invalid {
+  border-color: #fd4444;
+}
+input:invalid ~ .validation {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+

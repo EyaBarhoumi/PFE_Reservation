@@ -58,7 +58,7 @@ public with sharing class HotelController {
 
     //get hotels by city = ( city = city l donnée search key)
     @AuraEnabled(cacheable=true)
-    public static List<Contact> getHotelsByCity(String searchKey){
+    public static List<Hotel__c> getHotelsByCity(String searchKey){
         String key = '%' + searchKey + '%';
         return [select Name, Description__c ,Hotel_Picture_Url__c,Hotel_Location__Latitude__s,Hotel_Location__Longitude__s,Phone_Number__c,Street__c,City__c from Hotel__c where City__c LIKE :key ];
     }
