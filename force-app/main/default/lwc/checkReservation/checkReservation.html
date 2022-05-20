@@ -1,0 +1,43 @@
+<template>
+
+
+
+
+  <div style="margin: 2cm">
+
+    <lightning-card title="wellcome back ">
+
+
+      <div style="margin: 1cm;">
+
+        <lightning-input type="date" field-name="StartDate__c" label="Reservation start date" placeholder="type here..."
+          onchange={handleSDate}> </lightning-input>
+
+        <lightning-input type="date" field-name="EndDate__c" label="Reservation End date" placeholder="type here..."
+          onchange={handleEDate}> </lightning-input>
+        <div class="slds-form-element">
+          <label class="slds-form-element__label" for="select-01">Select Capacity</label>
+          <div class="slds-form-element__control">
+            <div class="slds-select_container">
+              <select class="slds-select" id="select-01" onchange={handleGetSelectedValue}>
+                <option value="">Select number of persons…</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <lightning-button variant="brand" label="Check availability" title="Primary action" onclick={CheckRes}
+        class="slds-var-m-left_x-small"></lightning-button>
+
+
+    </lightning-card>
+
+  </div>
+
+</template>

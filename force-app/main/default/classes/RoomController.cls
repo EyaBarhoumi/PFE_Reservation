@@ -1,8 +1,18 @@
 public with sharing class RoomController {
-    @AuraEnabled(cacheable=true)
+    // @AuraEnabled(cacheable=true)
+    // public static List<Room__c> getRoomList() {
+    //     return [
+    //         SELECT Name, RoomCapacity__c ,RoomDescription__c,RoomNumber__c,RoomPrice__c,RoomStatus__c,RoomView__c
+    //         FROM Room__c
+    //         WITH SECURITY_ENFORCED
+    //     ];
+
+    // }
+
+@AuraEnabled(cacheable=true)
     public static List<Room__c> getRoomList() {
         return [
-            SELECT Name, RoomCapacity__c ,RoomDescription__c,RoomNumber__c,RoomPrice__c,RoomStatus__c,RoomView__c
+            SELECT Name, RoomCapacity__c ,RoomStatus__c,RoomView__c
             FROM Room__c
             WITH SECURITY_ENFORCED
         ];
@@ -10,24 +20,26 @@ public with sharing class RoomController {
     }
 
 
-    @AuraEnabled(Cacheable=true)
-    public static Room__c[] getAllRooms() {
-        return [
-            SELECT Name, RoomCapacity__c ,RoomDescription__c,RoomNumber__c,RoomPrice__c,RoomStatus__c,RoomView__c
-            FROM Room__c
-            WITH SECURITY_ENFORCED
-            ORDER BY Name
-            LIMIT 50
-        ];
-    }
 
-    @AuraEnabled(Cacheable=true)
-    public static List<Room__c> getRoomByID( Id RoomId){
-        return [
-            SELECT Name, RoomCapacity__c ,RoomDescription__c,RoomNumber__c,RoomPrice__c,RoomStatus__c,RoomView__c
-            FROM Room__c
-            WHERE Id = :RoomId];
-    }
+
+    // @AuraEnabled(Cacheable=true)
+    // public static Room__c[] getAllRooms() {
+    //     return [
+    //         SELECT Name, RoomCapacity__c ,RoomDescription__c,RoomNumber__c,RoomPrice__c,RoomStatus__c,RoomView__c
+    //         FROM Room__c
+    //         WITH SECURITY_ENFORCED
+    //         ORDER BY Name
+    //         LIMIT 50
+    //     ];
+    // }
+
+    // @AuraEnabled(Cacheable=true)
+    // public static List<Room__c> getRoomByID( Id RoomId){
+    //     return [
+    //         SELECT Name, RoomCapacity__c ,RoomDescription__c,RoomNumber__c,RoomPrice__c,RoomStatus__c,RoomView__c
+    //         FROM Room__c
+    //         WHERE Id = :RoomId];
+    // }
 
     //Get Rooms By hotel 
     // @AuraEnabled(Cacheable=true)
@@ -40,16 +52,16 @@ public with sharing class RoomController {
 
     //Get Rooms by status 
 
-    @AuraEnabled(Cacheable=true)
-    public static List<Room__c> getRoomByStatus(){
-        return [
-            SELECT Name, RoomCapacity__c ,RoomDescription__c,RoomNumber__c,RoomPrice__c,RoomStatus__c,RoomView__c
-            FROM Room__c
-            WHERE RoomStatus__c = :'Available'];
-    }
+    // @AuraEnabled(Cacheable=true)
+    // public static List<Room__c> getRoomByStatus(){
+    //     return [
+    //         SELECT Name, RoomCapacity__c ,RoomDescription__c,RoomNumber__c,RoomPrice__c,RoomStatus__c,RoomView__c
+    //         FROM Room__c
+    //         WHERE RoomStatus__c = :'Available'];
+    // }
     
 
-
+  
 
 
 }

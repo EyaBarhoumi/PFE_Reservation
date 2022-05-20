@@ -1,0 +1,100 @@
+@media (min-width: 1200px) {
+  .container {
+    width: 1180px;
+  }
+}
+
+div {
+  display: block;
+}
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.row {
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+
+@media (min-width: 992px) {
+  .col-md-4 {
+    width: 33.33333%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+
+.services {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+
+
+.services span {
+    position: absolute;
+    top: 15px;
+    left: 0;
+}
+
+
+lightning-icon
+{
+    padding: 15px;
+    border-radius: 50%;
+    --sds-c-icon-color-background: #dfa8a0;
+}
+
+
+.services .desc {
+    padding-left: 100px;
+}
+
+
+h3{
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 400;
+    margin: 0 0 30px 0;
+    font-size: 24px;
+    line-height: 1.1;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+p, ul, ol {
+    margin-bottom: 1.5em;
+    font-size: 18px;
+    color: #848484;
+    font-weight: 300;
+    font-family: "Open Sans", Arial, serif;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}

@@ -227,4 +227,48 @@ ul.footer-nav li + li::before {
   left: 25px;
   top: 25px;
 }
+
+.lightning-button{
+  display: inline-block;
+  text-decoration: none;
+  font-size: 25px;
+  color: #1fe8b6;
+  padding: 20px 50px;
+  border: 3px solid #1fe8b6;
+  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.lightning-button::before,
+.lightning-button::after{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: inherit;
+    transition: all .5s ease-in;
+}
+
+.lightning-button::before{
+    top: -15px;
+    left: -15px;
+    border-width: 3px 0 0 3px;
+}
+
+.lightning-button::after{
+    bottom: -15px;
+    right: -15px;
+    border-width: 0 3px 3px 0;
+}
+
+.lightning-button:hover::before,
+.lightning-button:hover::after{
+    width: calc(100% + 27px);
+    height: calc(100% + 27px);
+}
+
 /* thank you page design */
