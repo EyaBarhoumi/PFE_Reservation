@@ -22,32 +22,29 @@ public with sharing class RoomTypesController {
 
 
 
-    @AuraEnabled
-    public static RoomType__c createRoomType (Object RoomTypeRecObj){
-        Map<String,Object> roomTypeinfo = (Map<String, Object>) JSON.deserializeUntyped(JSON.serialize(RoomTypeRecObj));
-        RoomType__c roomType = new RoomType__c() ;
+    // @AuraEnabled
+    // public static RoomType__c createRoomType (Object RoomTypeRecObj){
+    //     Map<String,Object> roomTypeinfo = (Map<String, Object>) JSON.deserializeUntyped(JSON.serialize(RoomTypeRecObj));
+    //     RoomType__c roomType = new RoomType__c() ;
        
-        roomType.Name = String.valueOf(roomTypeinfo.get('Name'));
-        roomType.Hotel__c = String.valueOf(roomTypeinfo.get('Hotel'));
-        roomType.PricePerNight__c = Integer.valueOf(roomTypeinfo.get('PricePerNight')) ; 
-        // Decimal d = Decimal.valueOf(!String.isEmpty(amount) ? amount : '0');
-        // d = d.setScale(8, RoundingMode.HALF_EVEN);
+    //     roomType.Name = String.valueOf(roomTypeinfo.get('Name'));
+    //     roomType.Hotel__c = String.valueOf(roomTypeinfo.get('Hotel'));
+    //     roomType.PricePerNight__c = Integer.valueOf(roomTypeinfo.get('PricePerNight')) ; 
+    //     // Decimal d = Decimal.valueOf(!String.isEmpty(amount) ? amount : '0');
+    //     // d = d.setScale(8, RoundingMode.HALF_EVEN);
        
-            insert roomType;
-            return roomType ;
-    }
+    //         insert roomType;
+    //         return roomType ;
+    // }
 
 
-
-
-    @AuraEnabled
-    public static RoomType__c updateDepartment(RoomType__c roomT){
-        RoomType__c roomType  = new RoomType__c() ;
-        roomType = roomT;
-        update roomType ;
-        return roomType ;
-    }
-
+    // @AuraEnabled
+    // public static RoomType__c updateDepartment(RoomType__c roomT){
+    //     RoomType__c roomType  = new RoomType__c() ;
+    //     roomType = roomT;
+    //     update roomType ;
+    //     return roomType ;
+    // }
 
     @AuraEnabled(cacheable=true)
     public static list <RoomType__c> getRoomType(Id RoomTypeID){
@@ -76,6 +73,13 @@ public with sharing class RoomTypesController {
                 WITH SECURITY_ENFORCED];
     }
 
+
+    @AuraEnabled(cacheable=True)
+    public static List <AggregateResult> getRoomTypesName(){
+        return [ SELECT  Name
+                FROM RoomType__c
+                GROUP BY Name];
+    }
 
 
 

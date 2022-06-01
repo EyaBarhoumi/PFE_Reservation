@@ -1,0 +1,118 @@
+<template>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="booking-form">
+                <form>
+                    <div class="row no-margin">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <!-- <span class="form-label">Select a city</span>
+                                <input class="form-control" type="text" placeholder="Destination ..." onchange={handleGetCity}> -->
+                                <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
+                                    <label class="slds-form-element__label" for=" member">
+                                      <strong> City </strong></label>
+                                <select  class="slds-select" name="city" onchange={handleGetCity} id="City">
+                                    <template for:each={hotel.data} for:item="hot">
+                                    <option key={hot.Id}  value={hot.Id} >{hot.City}</option>
+                                    </template>
+                                    </select>
+                                    </div>
+                           
+                           
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row no-margin">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <span class="form-label">Check In</span>
+                                        <input class="form-control" type="date" required  onchange={handleSDate} >
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <span class="form-label">Check out</span>
+                                        <input class="form-control" type="date" required  onchange={handleEDate} >
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <span class="form-label">Guests</span>
+                                        <select class="form-control" onchange={handleGetCapacity}>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-btn">
+                                <!-- <button class="submit-btn"  onclick={CheckRes}>Check availability</button> -->
+                                <lightning-button variant="brand" label="Check availability" title="Primary action" onclick={CheckRes}
+        class="slds-var-m-left_x-small"></lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+
+        <template for:each={rooms.data} for:item="room" >
+          <div key={room.id}>
+              <h1>{room__c.name__c}
+              </h1>
+              <h2>AAAAA</h2>
+              <div>
+                <h3>
+                 {room.Hotel__c}
+                </h3>
+                
+                <h4>
+                  {room.Hotel__r.Name}
+                </h4>
+              </div>
+            </div>
+        
+            </template>
+        
+     
+        
+            </div>
+
+            <template if:true={miaw}>
+                <div class="card">
+                    <div class="card-image">
+                      <div class="background-image"></div>
+                      <div class="publication-details">
+                        <a href="#" class="author">
+                          <i class="far fa-user"> {room.Hotel__r.Name}</i>
+                          </a>
+                        <span class="date"><i class="fas fa-calendar-alt"></i> April 01, 2020</span>
+                      </div>
+                    </div>
+              
+                    <div class="card-content">
+                      <h1 class="title">Battle of Taillebourg</h1>
+                      <h2 class="subtitle">From Wikipedia, the free encyclopedia</h2>
+                      <p class="description">
+                        The battle was fought on the bridge built over the Charente River, a
+                        point of strategic importance on the route between northern and
+                        southern France, and later fought near the city of Saintes.
+                      </p>
+                      <div class="cta">
+                        <a href="#">Read more &rarr;</a>
+                      </div>
+                    </div>
+                  </div>
+            </template>
+
+</template>

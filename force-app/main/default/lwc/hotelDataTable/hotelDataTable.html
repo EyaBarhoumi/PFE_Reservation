@@ -1,5 +1,5 @@
 <template>
-    
+
 
 
 
@@ -31,17 +31,17 @@
 
                 <div class="slds-m-around_medium">
                     <lightning-button-group>
+
+                        <lightning-input type="search" onchange={handleKeyChange} variant="label-hidden" label="Search"
+                        value={searchkey} placeholder="Search by name">
+
+                    </lightning-input>
+
                         <lightning-button label="New" onclick={New}></lightning-button>
                         <lightning-button onclick={report} label="Dashboard"></lightning-button>
 
                         <lightning-button icon-name="utility:download" label="Download as CSV" title="Download CSV File"
                             onclick={downloadCSVFile} variant="brand"></lightning-button>
-
-
-                        <lightning-input type="search" onchange={handleKeyChange} variant="label-hidden" label="Search"
-                            value={searchkey} placeholder="Search by name">
-
-                        </lightning-input>
 
 
 

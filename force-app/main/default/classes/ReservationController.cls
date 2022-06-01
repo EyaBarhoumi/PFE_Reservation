@@ -5,36 +5,84 @@ public with sharing class ReservationController {
         Date beginDate = Date.valueOf(ResDetails.get('begin'));
         Date endDate = Date.valueOf(ResDetails.get('end'));
 
-            // Date beginDate = Date.valueOf('2022-06-01');
-            // Date endDate = Date.valueOf('2022-08-01');
+        string capacity = ResDetails.get('capacity');
+        string city = ResDetails.get('city');
             system.debug('hello');
             system.debug(beginDate);   
             system.debug(endDate);
-            //Date beginDate = Date.valueOf(SDate);
-           // Date endDate = Date.valueOf(EDate);
-
-
-           // List<Room__c> Roomet = new List<Room__c>();
+            
             List<Id> reservedRooms = new List<Id>();
 
-
-            List<Reserved_Room__c> reservationList = [SELECT Room__c, name FROM Reserved_Room__c WHERE End_Date__c >= :beginDate AND Start_Date__c <= :endDate ];
+            List<Reserved_Room__c> reservationList = [SELECT Room__c, name FROM Reserved_Room__c WHERE End_Date__c >= :beginDate AND Start_Date__c <= :endDate AND Room__r.Capacity__c = :capacity ];
 
 
              for (Reserved_Room__c item : reservationList) {
                 reservedRooms.add(item.Room__c);
              }
-
+           
     
-            List<Room__c> foundRooms = [SELECT Name, RoomPrice__c, Room_Type__c FROM Room__c WHERE Id NOT IN :reservedRooms ORDER BY Name ASC];
+            List<Room__c> foundRooms = [SELECT Name, RoomPrice__c, Room_Type__c FROM Room__c
+             WHERE Id NOT IN :reservedRooms 
+             AND Capacity__c = :capacity 
+             AND  Room_Type__r.Hotel__r.City__c  LIKE :city
+             ORDER BY Name ASC];
 
-            // for(Integer i = 0; i < reservationList.size(); i++){
-            //     ID RoomIds =  reservationList.get(i).Room__c;
-            //     List<Room__c> Rooom = [ SELECT Name, Price_per_Day__c, Hotel__r.Name FROM Room__c where id= :RoomIds];
-            //     Roomet.add(Roomet.get(0));
-            // } 
             return foundRooms;
 
-
          }
+         
+         @AuraEnabled
+         public static Id temporallyBlockRooms(List<Room__c> roomsToReserve, Map<String, String> dates) {
+             List<Reserved_Room__c> reservedRooms = new List<Reserved_Room__c>();
+     
+             Datetime beginDate = (Datetime) JSON.deserialize('"'+dates.get('begin')+'"', Datetime.class);
+             Datetime endDate = (Datetime) JSON.deserialize('"'+dates.get('end')+'"', Datetime.class);
+     
+             Reservation__c reservation = new Reservation__c(Reservation_Begin__c=beginDate, Reservation_End__c=endDate);
+     
+             insert reservation;
+     
+             for (Room__c room : roomsToReserve) {
+                 Reserved_Room__c tempReservedRoom = new Reserved_Room__c(Room__c=room.Id, Reservation__c=reservation.Id);
+                 reservedRooms.add(tempReservedRoom);
+             }
+     
+             insert reservedRooms;
+     
+             return reservation.Id;
+         }
+
+
+         // @AuraEnabled
+         // public static String[] fulfillReservation(Contact[] contact, RegistredContact__c[] registeredContacts) {
+     
+         //     for (Contact contact : contacts) {
+         //         upsert contact Cin__c;
+         //     }
+     
+         //     for (Integer i=0; i<registeredContacts.size(); i++) {
+         //       registeredContacts[i].Contact = contacts[i].Id;
+         //     }
+     
+         //     insert registeredContacts;
+     
+         //     Reservation__c reservation = [SELECT Id, Name FROM Reservation__c WHERE Id = :registeredContacts[0].Reservation__c];
+         //     List<String> reservationInfo = new List<String> {reservation.Id, reservation.Name};
+     
+         //     return reservationInfo;
+         // }
+     
+
+
+         @AuraEnabled
+         public static void cancelReservation(String reservationId) {
+             Reservation__c reservationToDelete = [SELECT Id FROM Reservation__c WHERE Id= :reservationId];
+             delete reservationToDelete;
+         }
+     
+
+
+
+
+      
 }

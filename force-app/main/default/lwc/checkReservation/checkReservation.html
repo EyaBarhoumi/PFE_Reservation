@@ -9,7 +9,21 @@
 
 
       <div style="margin: 1cm;">
-
+        <div class="slds-form-element">
+          <label class="slds-form-element__label" for="select-01">Select Capacity</label>
+          <div class="slds-form-element__control">
+            <div class="slds-select_container">
+              <select class="slds-select" id="select-01" onchange={handleGetCity}>
+                <option value="">Select City</option>
+                <option>Hammamet</option>
+                <option>Gammarth</option>
+                <option>Nabeul</option>
+                <option>caféchanta</option>
+                <option>Tourisme 3la 3ajla</option>
+              </select>
+            </div>
+          </div>
+        </div>
         <lightning-input type="date" field-name="StartDate__c" label="Reservation start date" placeholder="type here..."
           onchange={handleSDate}> </lightning-input>
 
@@ -19,7 +33,7 @@
           <label class="slds-form-element__label" for="select-01">Select Capacity</label>
           <div class="slds-form-element__control">
             <div class="slds-select_container">
-              <select class="slds-select" id="select-01" onchange={handleGetSelectedValue}>
+              <select class="slds-select" id="select-02" onchange={handleGetCapacity}>
                 <option value="">Select number of persons…</option>
                 <option>1</option>
                 <option>2</option>
@@ -39,5 +53,42 @@
     </lightning-card>
 
   </div>
+
+
+  <div>
+
+    <template for:each={rooms.data} for:item="room">
+      <div key={room.id}>
+        <h1>{room__c.name__c}
+        </h1>
+        <h2>AAAAA</h2>
+        <div>
+          <h3>
+            {room.Hotel__c}
+          </h3>
+
+          <h4>
+            {room.Hotel__r.Name}
+          </h4>
+        </div>
+      </div>
+
+    </template>
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </template>
