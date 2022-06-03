@@ -1,4 +1,3 @@
-
 import { LightningElement, wire, track } from "lwc";
 import { CurrentPageReference } from "lightning/navigation";
 // import getRoomsByHotelID from "@salesforce/apex/RoomController.getRoomsByHotelID";

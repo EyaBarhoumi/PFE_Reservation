@@ -1,6 +1,4 @@
 <template>
-
-
     <div class="container">
         <div class="row">
             <div class="booking-form">
@@ -14,8 +12,8 @@
                                     <label class="slds-form-element__label" for=" member">
                                       <strong> City </strong></label>
                                 <select  class="slds-select" name="city" onchange={handleGetCity} id="City">
-                                    <template for:each={hotel.data} for:item="hot">
-                                    <option key={hot.Id}  value={hot.Id} >{hot.City}</option>
+                                    <template for:each={City.data} for:item="hot">
+                                    <option key={hot.Id} value={hot.City__c}>{hot.City__c}</option>
                                     </template>
                                     </select>
                                     </div>
@@ -66,7 +64,7 @@
 
     <div>
 
-        <template for:each={rooms.data} for:item="room" >
+        <!-- <template for:each={rooms.data} for:item="room" >
           <div key={room.id}>
               <h1>{room__c.name__c}
               </h1>
@@ -82,32 +80,30 @@
               </div>
             </div>
         
-            </template>
+            </template> -->
         
      
         
             </div>
 
-            <template if:true={miaw}>
-                <div class="card">
+            <template if:true={miaw} >
+                <div class="card" for:each={rooms} for:item="room" key={room.id}>
                     <div class="card-image">
                       <div class="background-image"></div>
                       <div class="publication-details">
                         <a href="#" class="author">
-                          <i class="far fa-user"> {room.Hotel__r.Name}</i>
+                          <i class="far fa-user"> {room.Room_Type__r.Hotel__r.Name}  </i>
                           </a>
-                        <span class="date"><i class="fas fa-calendar-alt"></i> April 01, 2020</span>
+                        <span class="date"><i class="fas fa-calendar-alt"></i>  {room.RoomPrice__c} $</span>
                       </div>
                     </div>
               
                     <div class="card-content">
-                      <h1 class="title">Battle of Taillebourg</h1>
-                      <h2 class="subtitle">From Wikipedia, the free encyclopedia</h2>
-                      <p class="description">
-                        The battle was fought on the bridge built over the Charente River, a
-                        point of strategic importance on the route between northern and
-                        southern France, and later fought near the city of Saintes.
+                      <h1 class="title">{room.Room_Type__r.Hotel__r.Name}</h1>
+                      <h2 class="subtitle">Phone: {room.Room_Type__r.Hotel__r.Phone_Number__c}</h2>
+                      <p class="description"> Description: {room.Room_Type__r.Hotel__r.Description__c}
                       </p>
+                      <button data-id={room.Room_Type__r.Hotel__c} key={room.Id} onclick={Reserve}>CLICK ME </button>
                       <div class="cta">
                         <a href="#">Read more &rarr;</a>
                       </div>

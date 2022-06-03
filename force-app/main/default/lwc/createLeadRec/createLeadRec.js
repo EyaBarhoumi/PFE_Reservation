@@ -41,6 +41,3 @@ export default class CreateLeadRec extends NavigationMixin(LightningElement) {
 //         }
 //     });
 }
-
-
-

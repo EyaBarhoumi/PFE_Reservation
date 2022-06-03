@@ -1,6 +1,7 @@
 import { LightningElement, wire, api, track } from "lwc";
 import getRooms from "@salesforce/apex/ReservationController.getAvailableRooms";
-import getCities from "@salesforce/apex/HotelController.getCities ";
+import getCities from "@salesforce/apex/HotelController.getCities";
+import { NavigationMixin } from 'lightning/navigation';
 
 var dataa = {
     begin: "bla bla bla ",
@@ -8,7 +9,7 @@ var dataa = {
     capacity: "2"
   };
 
-export default class RegistrationForm extends LightningElement {
+export default class RegistrationForm extends NavigationMixin(LightningElement) {
     rooms = "" ;
     @track errorMsg;
     @track miaw=false;
@@ -41,6 +42,18 @@ export default class RegistrationForm extends LightningElement {
       handleGetCity(event){
         this.city = event.target.value;
       }
+      Reserve(event){
+        console.log("click");
+        console.log(event.target.dataset.id);
+        this[NavigationMixin.Navigate]({
+          type: "standard__webPage",
+          attributes: {
+              url: `/reservationoptionspage/?HotelId=${event.target.dataset.id}/${this.capacity}/${this.startDt}/${this.endDt}`
+          }
+      },
+      true
+      );
+      }
   
   
   
@@ -48,12 +61,13 @@ export default class RegistrationForm extends LightningElement {
     CheckRes(event){
         this.daTaa.begin=this.startDt;
         this.daTaa.end=this.endDt;
-        this.daTaa.capacity=this.capacity;
+      //  this.daTaa.capacity=this.capacity;
         this.daTaa.city=this.city;
         getRooms({ResDetails:this.daTaa})
         .then(result =>{
           this.miaw =true;
             this.rooms = result;
+            console.log(this.City);
             console.log(this.daTaa);
             console.log("🚀 result");
             console.log(result);

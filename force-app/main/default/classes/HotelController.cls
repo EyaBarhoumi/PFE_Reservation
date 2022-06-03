@@ -63,14 +63,38 @@ public with sharing class HotelController {
     }
 
 
+    @AuraEnabled(cacheable=true)
+         public static List<Room__c> getAvailableRoomsByHotel(Map<String,String> ResDetails){
+            
+        Date beginDate = Date.valueOf(ResDetails.get('begin'));
+        Date endDate = Date.valueOf(ResDetails.get('end'));
 
-    //get hotels by city = ( city = city l donnée search key)
-    // @AuraEnabled(cacheable=true)
-    // public static List<Hotel__c> getHotelsByCity(String searchKey){
-    //     String key = '%' + searchKey + '%';
-    //     return [SELECT Name, Description__c ,Hotel_Picture_Url__c,Hotel_Location__Latitude__s,
-    //     Hotel_Location__Longitude__s,Phone_Number__c,City__c FROM Hotel__c WHERE City__c LIKE :key ];
-    // }
+        string capacity = ResDetails.get('capacity');
+        string Hotel = ResDetails.get('HotelId');
+            system.debug('hello');
+            system.debug(beginDate);   
+            system.debug(endDate);
+            
+            List<Id> reservedRooms = new List<Id>();
+
+            List<Reserved_Room__c> reservationList = [SELECT Room__c, name FROM Reserved_Room__c WHERE End_Date__c >= :beginDate AND Start_Date__c <= :endDate AND Room__r.Capacity__c = :capacity ];
+
+
+             for (Reserved_Room__c item : reservationList) {
+                reservedRooms.add(item.Room__c);
+             }
+           
+    
+            List<Room__c> foundRooms = [SELECT Name, RoomPrice__c, Room_Type__c, Room_Type__r.name, roomnumber__c FROM Room__c
+             WHERE Id NOT IN :reservedRooms 
+             AND Capacity__c = :capacity 
+             AND  Room_Type__r.Hotel__c  = :Hotel
+             ORDER BY Name ASC];
+
+            return foundRooms;
+
+         }
+
 
 
 
