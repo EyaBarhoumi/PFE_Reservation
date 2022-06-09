@@ -1,7 +1,8 @@
 <template>
     <lightning-progress-indicator current-step={currentStep} type="base" variant="base">
-        <lightning-progress-step label="Informations personnelles" value="1"></lightning-progress-step>
-        <lightning-progress-step label="Reservation Details" value="2"></lightning-progress-step>
+        <lightning-progress-step label="Reservation Details" value="1"></lightning-progress-step>
+        <lightning-progress-step label="Personal information" value="2"></lightning-progress-step>
+        <lightning-progress-step label="Thank you page" value="3"></lightning-progress-step>
     </lightning-progress-indicator>
     <div></div>
     <div>
@@ -10,9 +11,13 @@
         <br />
         <br />
         <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+
+            <input type="hidden" name="oid" value="00D8d000002bryN" />
+            <input type="hidden" name="retURL" value="https://moons-developer-edition.um8.force.com/DreamReservation/s/thankyoupage" />
+
+
             <div class="stepOne">
-                <input type="hidden" name="oid" value="00D8d000002bqr7" />
-                <input type="hidden" name="retURL" value="https://moons-developer-edition.um8.force.com/DreamReservation/s/thankyoupage" />
              
                 <fieldset class="grupo">
                     <div class="campo">
@@ -49,7 +54,12 @@
                     <div class="campo">
                         Cin:<input id="00N8d00000As9VG" maxlength="8" name="00N8d00000As9VG" size="20"
                             type="text" /><br>
+                    </div>
+                    <div class="campo">
+                        <label for="company"></label> UserName<input  id="company" maxlength="40" name="company" size="20"  type="text"  /><br>
 
+
+                            <!-- class="slds-hidden" -->
                     </div>
               
                 </fieldset>
@@ -67,79 +77,11 @@
                         <p id="demo">{text}</p>
                     </div>
                     <fieldset class="body">
-                        <div>
-                            <hr />
-                            <div style="margin-bottom: 40px">
-                                <nav class="container">
-                                    <div>
-                                        <button type="button" onclick={showcons} value="Consommation">
-                                            <lightning-icon icon-name="utility:money" alternative-text="money"
-                                                title="money"></lightning-icon><br />
-                                            <span> Consommation </span>
-                                        </button>
-                                    </div>
+                    
 
-                                    <div>
-                                        <button type="button" onclick={showcons} value="logement">
-                                            <lightning-icon icon-name="utility:tour" alternative-text="tour"
-                                                title="tour">
-                                            </lightning-icon><br />
-                                            <span>
-                                                Aménagement <br />
-                                                logement
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <div>
-                                        <button type="button" onclick={showvoiture} value="voiture">
-                                            <lightning-icon icon-name="utility:travel_and_places"
-                                                alternative-text="travel_and_places" title="travel_and_places">
-                                            </lightning-icon><br />
 
-                                            <span> Voiture </span>
-                                        </button>
-                                    </div>
-                                    <div>
-                                        <button type="button" onclick={showcons} value="immobilier" id="immobilier">
-                                            <lightning-icon icon-name="utility:home" alternative-text="home"
-                                                title="home">
-                                            </lightning-icon><br />
-                                            <span> Immobilier </span>
-                                        </button>
-                                    </div>
-                                </nav>
-                            </div>
 
-                            <div class="campo">
-                                <label for="00N8d000006itSq">Type de credit</label>
-                                <select id="00N8d000006itSq" name="00N8d000006itSq" title="loan_type">
-                                    <option value="">--None--</option>
-                                    <option value="Consommation">Consommation</option>
-                                    <option value="Aménagement logement">
-                                        Aménagement logement
-                                    </option>
-                                    <option value="Voiture">Voiture</option>
-                                    <option value="Immobilier">Immobilier</option>
-                                </select><br />
-                            </div>
 
-                            <div class="campo">
-                                <label for="00N8d000006itSl-form-element-id-11">Montant credit</label>
-                                <input id="00N8d000006itSl" name="00N8d000006itSl" size="20" type="text" /><br />
-                            </div>
-                            <div class="campo">
-                                <label class="slds-form-element__label" for="single-form-element-id-12">Durée de
-                                    remboursement (Ans)</label>
-                                <input id="00N8d000006itSv" name="00N8d000006itSv" size="20" type="text" /><br />
-                            </div>
-                            <div class="campo">
-                                <p style="font-size: bold">
-                                    Il s’agit d’une simulation à titre indicatif, l’échéance sera
-                                    calculée sur la base des conditions qui seront validées le
-                                    jour de la décision .
-                                </p>
-                            </div>
-                        </div>
                     </fieldset>
                 </div>
                 <lightning-button variant="brand" label="Previous" onclick={goBackToStepOne} class="previous">

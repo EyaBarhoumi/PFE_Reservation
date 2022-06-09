@@ -1,46 +1,44 @@
 <template>
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
 
-    <div style="margin: 2cm">
+<!-- <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"> -->
 
-        <lightning-card title="wellcome back ">
-
-            <div style="margin: 1cm;">
-
-                <lightning-input type="text" label="First Name"></lightning-input>
-
-                <lightning-input type="text" label="Last Name"></lightning-input>
-
-
-                <lightning-input type="email" label="Email" minlength="5"
-                    message-when-too-short="Your email address must be more 5 characters.">
-                </lightning-input>
-
-                <lightning-input type="password" label="Password">
-                </lightning-input>
-
-            </div>
-
-            <div style="margin-left: 2cm;">
-
-                <lightning-input style="margin-top: 25px " type="toggle" label="Remember me" unchecked>
-
-                </lightning-input>
-
-            </div>
-
-            <div style="margin-left: 300px;">
-
-                <lightning-button variant="brand" label="Log In" title="Primary action" onclick={handleClick}
-                    class="slds-var-m-left_x-small"></lightning-button>
-
-            </div>
-
-
-
-
-
-        </lightning-card>
-
-    </div>
-
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTE: Please add the following <FORM> element to your page.             -->
+    <!--  ----------------------------------------------------------------------  -->
+    
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+    
+    <input type=hidden name="oid" value="00D8d000002bryN">
+    <input type=hidden name="retURL" value="http://">
+    
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+    <!--  these lines if you wish to test in debug mode.                          -->
+    <!--  <input type="hidden" name="debug" value=1>                              -->
+    <!--  <input type="hidden" name="debugEmail"                                  -->
+    <!--  value="eya.barhoumi@outlook.com">                                       -->
+    <!--  ----------------------------------------------------------------------  -->
+    
+    <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+    
+    <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+    
+    <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+    
+    <label for="company"></label><input  id="company" maxlength="40" name="company" size="20" value="default" type="hidden" /><br>
+    
+    UserName:<input  id="00N8d00000F4q7e" maxlength="20" name="00N8d00000F4q7e" size="20" type="text" /><br>
+    
+    Cin:<input  id="00N8d00000As9VG" maxlength="8" name="00N8d00000As9VG" size="20" type="text" /><br>
+    
+    Date of birth:<span class="dateInput dateOnlyInput"><input  id="00N8d00000B59Rw" name="00N8d00000B59Rw" size="12" type="text" /></span><br>
+    
+    <input type="submit" name="submit">
+    
+    </form>
 </template>

@@ -65,17 +65,17 @@ export default class ExploreFormWizard extends LightningElement {
     }
     showText = false;
     text = '';
-    showcons(event){
-    this.text="Pour faire face aux dépenses imprévues, notre banque vous offre la possibilité un crédit remboursable sur une durée maximale de 3 ans selon votre capacité de remboursement."  ;
-    console.log(event.target.value);
-    }
-    showvoiture(event){
-            this.text="Nous vous offrons la possibilité de financer l'acquisition d'un véhicule neuf ou d'occasion à travers un crédit pouvant atteindre 80% du montant global TTC.";
-    }
+    // showcons(event){
+    // this.text="Pour faire face aux dépenses imprévues, notre banque vous offre la possibilité un crédit remboursable sur une durée maximale de 3 ans selon votre capacité de remboursement."  ;
+    // console.log(event.target.value);
+    // }
+    // showvoiture(event){
+    //         this.text="Nous vous offrons la possibilité de financer l'acquisition d'un véhicule neuf ou d'occasion à travers un crédit pouvant atteindre 80% du montant global TTC.";
+    // }
 
-    showlog(event){
-        this.text="Crédit aménagement :Notre banque vous propose une solution adaptée à vos besoins : un crédit pour financer les travaux d'aménagement de votre logement sur une durée qui peut atteindre 5 ans.";          
-    }
+    // showlog(event){
+    //     this.text="Crédit aménagement :Notre banque vous propose une solution adaptée à vos besoins : un crédit pour financer les travaux d'aménagement de votre logement sur une durée qui peut atteindre 5 ans.";          
+    // }
 
     goBackToStepOne() {
         this.currentStep = '1';
@@ -94,57 +94,24 @@ export default class ExploreFormWizard extends LightningElement {
             .querySelector('div.stepTwo')
             .classList.remove('slds-hide');
     }
-    goBackToStepTwo() {
-        this.currentStep = '2';
+    // goBackToStepTwo() {
+    //     this.currentStep = '2';
 
-        this.template.querySelector('div.stepThree').classList.add('slds-hide');
-        this.template
-            .querySelector('div.stepTwo')
-            .classList.remove('slds-hide');
-    }
-    goToStepThree() {
-        this.currentStep = '3';
+    //     this.template.querySelector('div.stepThree').classList.add('slds-hide');
+    //     this.template
+    //         .querySelector('div.stepTwo')
+    //         .classList.remove('slds-hide');
+    // }
+    // goToStepThree() {
+    //     this.currentStep = '3';
 
-        this.template.querySelector('div.stepTwo').classList.add('slds-hide');
-        this.template
-            .querySelector('div.stepThree')
-            .classList.remove('slds-hide');
-    }
-    get options() {
-        return [
-            { label: 'Monsieur', value: 'Monsieur' },
-            { label: 'Madame', value: 'Madame' },
-            { label: 'Mademoiselle', value: 'Mademoiselle' },
-        ];
-    }
-    get options1() {
-        return [
-            { label: 'CIN', value: 'CIN' },
-            { label: 'Passport', value: 'Passport' },
-        ];
-    }
-    get optionslog() {
-        return [
-            { label: 'Propriétaire', value: 'Propriétaire' },
-            { label: 'locataire', value: 'locataire' },
-        ];
-    }
-    get optionssit() {
-        return [
-            { label: 'Célibataire', value: 'Célibataire' },
-            { label: 'Marié(e)', value: 'Marie' },
-            { label: 'Divorcé(e)', value: 'Divorce' },
-            { label: 'Veuf', value: 'Veuf' },
-        ];
-    }
-    get optionsenfant() {
-        return [
-            { label: '0', value: '0' },
-            { label: '1', value: '1' },
-            { label: '2', value: '2' },
-            { label: '+3', value: '+3' },
-        ];
-    }
+    //     this.template.querySelector('div.stepTwo').classList.add('slds-hide');
+    //     this.template
+    //         .querySelector('div.stepThree')
+    //         .classList.remove('slds-hide');
+    // }
+
+
     
     
 }

@@ -1,8 +1,12 @@
 import { LightningElement, wire, track } from 'lwc';
 import getHotelByID from "@salesforce/apex/HotelController.getHotelByID";
 import getRoomsByHotel from "@salesforce/apex/HotelController.getAvailableRoomsByHotel";
+import CheckRes from "@salesforce/apex/HotelController.ReserveRequest";
 import { CurrentPageReference } from 'lightning/navigation';
 import { NavigationMixin } from 'lightning/navigation';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+
+
 
 
 var dataa = {
@@ -21,7 +25,8 @@ HotelId ='';
 capacity='';
 Edate='';
 Sdate='';
-
+NumberOfRooms='';
+roomTypeId = '';
 daTaa = {
     'capacity':'2'
   };
@@ -64,23 +69,71 @@ daTaa = {
 
     };
 
-
+    handleRooms(event){
+  
+        this.NumberOfRooms = event.target.value;
+      }
 
 
 
     
     Reserve(event)
     {
-        console.log("click");
-        console.log(event.target.dataset.id);
-        this[NavigationMixin.Navigate]({
-          type: "standard__webPage",
-          attributes: {
-              url: `/reservationoptionspage/?HotelId=${event.target.dataset.id}`
-          }
-      },
-      true
-      );
+        console.log("clickewi");
+        this.roomTypeId=event.target.dataset.idd;
+        console.log(this.roomTypeId);
+        CheckRes({RoomType:this.roomTypeId})
+        .then(result=>{
+            console.log("🚀🚀")
+            console.log(result.length)
+            console.log('number of rooms' + this.NumberOfRooms);
+            if(result.length >= this.NumberOfRooms)
+            {
+                this.dispatchEvent(
+     
+                    new ShowToastEvent({
+             
+                    title : 'Allah Yberek',
+             
+                    message : 'stand by',
+             
+                    variant : 'success',
+             
+                   }),
+             
+                  );
+            }
+            else{
+                console.log("allah ghaleb");
+                this.dispatchEvent(
+     
+                    new ShowToastEvent({
+             
+                    title : 'Not enough available rooms',
+             
+                    message : result.length,
+             
+                    variant : 'error',
+             
+                   }),
+             
+                  );
+            }
+        })
+        .catch(error=>{
+            console.log("💀")
+            console.log(error)
+            
+        })
+
+   
+
+            
+     
+     
+
+
+        
     }
 
 

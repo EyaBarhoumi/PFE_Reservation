@@ -3,18 +3,15 @@
         <H1>HELLOOOOO</H1>    
         <div for:each={Hotello} for:item="Hotel" key={Hotel.Id}>
             <lightning-card>
-                <h1>{Hotel.Name} / {Hotel.roomnumber__c}</h1>
+             
                 <p>{Hotel.Room_Type__r.Name}</p>
                 <h2>{Hotel.RoomPrice__c}</h2>
-                <button data-id={Hotel.Id} key={Hotel.Id} onclick={Reserve}> Reserve !  </button>
+                <img   src={Hotel.Room_Type__r.RoomType_Picture__c} alt="">
+                <input  type="number" required  onchange={handleRooms} >
+                <button data-idd={Hotel.Room_Type__c} key={Hotel.Id} onclick={Reserve}> Reserve !  </button>
             </lightning-card>
 
         </div>
-
-
-
-
-
 
 
 
