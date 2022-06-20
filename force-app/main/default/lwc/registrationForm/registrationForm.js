@@ -61,7 +61,7 @@ export default class RegistrationForm extends NavigationMixin(LightningElement) 
     CheckRes(event){
         this.daTaa.begin=this.startDt;
         this.daTaa.end=this.endDt;
-      //  this.daTaa.capacity=this.capacity;
+        this.daTaa.capacity=this.capacity;
         this.daTaa.city=this.city;
         getRooms({ResDetails:this.daTaa})
         .then(result =>{

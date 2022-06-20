@@ -46,7 +46,7 @@ public with sharing class HotelController {
             SELECT
             Name, Id, Description__c ,Hotel_Picture_Url__c,City__c,Hotel_Location__c,Hotel_Location__Latitude__s,Hotel_Location__Longitude__s,Phone_Number__c
             FROM Hotel__c
-            WITH SECURITY_ENFORCED
+
             ORDER BY Name
             LIMIT 50
         ];
@@ -85,7 +85,7 @@ public with sharing class HotelController {
              }
            
     
-            List<Room__c> foundRooms = [SELECT Name, RoomPrice__c, Room_Type__c, Room_Type__r.name, roomnumber__c FROM Room__c
+            List<Room__c> foundRooms = [SELECT Name, RoomPrice__c, Room_Type__c, Room_Type__r.name, Room_Type__r.RoomType_Picture__c,Room_Type__r.hotel__r.City__c FROM Room__c
              WHERE Id NOT IN :reservedRooms 
              AND Capacity__c = :capacity 
              AND  Room_Type__r.Hotel__c  = :Hotel
@@ -93,6 +93,12 @@ public with sharing class HotelController {
 
             return foundRooms;
 
+         }
+
+         @AuraEnabled(Cacheable=true)
+         public static List<room__c> ReserveRequest(id RoomType){
+             return [
+                 SELECT Name from room__c where room_type__c =: RoomType];
          }
 
 

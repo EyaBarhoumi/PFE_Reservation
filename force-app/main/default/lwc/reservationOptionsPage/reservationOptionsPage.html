@@ -12,8 +12,41 @@
             </lightning-card>
 
         </div>
-
-
-
     </div>
+
+
+
+
+
+    <div class="room" for:each={Hotello} for:item="Hotel" key={Hotel.Id}>
+        <div class="room-card">
+          <div class="card-left">
+            <img src={Hotel.Room_Type__r.RoomType_Picture__c} alt="Hotel">
+          </div>
+          <div class="card-right">
+            <div class="right-top">
+              <h4>{Hotel.Room_Type__r.Hotel__r.City__c}</h4>
+            </div>
+            <div class="right-bottom">
+              <div class="bottom-left">
+                <h5>{Hotel.Room_Type__r.Name}</h5>
+                <p>♦ {Hotel.Room_Type__r.Name} <br>♦ {Hotel.Room_Type__r.Name}<br>♦{Hotel.Room_Type__r.Name}</p>
+              </div>
+              <div class="bottom-right">
+                <div class="bottom-right-top">
+                  <h5>dbfhehyhfhfef</h5>
+                  <p><span>11/30 dhehehd</span><br>➜ {Hotel.RoomPrice__c}</p>
+                  <p><span>12/01-12/15</span><br>➜ {Hotel.RoomPrice__c}</p>
+                  <p><span>12/16-1/30</span><br>➜ {Hotel.RoomPrice__c}</p>
+                </div>
+                <div class="bottom-right-bottom">
+                  <a href="https://line.me/R/ti/p/%40643ibjqd" target="_blank" rel="noopener noreferrer">Reserve</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 </template>

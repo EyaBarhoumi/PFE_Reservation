@@ -1,0 +1,241 @@
+<template>
+    <div class="app-main-right cards-area">
+        <div class="app-main-right-header">
+            <span>Latest Deals</span>
+            <a href="#">See More</a>
+        </div>
+        <div class="card-wrapper main-card">
+            <a class="card cardItemjs" onclick={openmodal}>
+                <div class="card-image-wrapper">
+                    <img src="https://cdn.pixabay.com/photo/2021/12/11/07/59/hotel-6862159_960_720.jpg">
+                </div>
+                <div class="card-info">
+                    <div class="card-text big cardText-js">Hotel Conrad</div>
+                    <div class="card-text small">Stockton Street</div>
+                    <div class="card-text small">
+                        Starts from:
+                        <span class="card-price"> $1000</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+
+
+    <template if:true={modal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+            <div id="modal-window" class="shadow">
+                <div class="main-modal">
+                    <div class="modal-left">
+                        <div class="modal-image-wrapper">
+                            <img src="https://cdn.pixabay.com/photo/2021/12/11/07/59/hotel-6862159_960_720.jpg">
+                        </div>
+                        <div class="modal-info-header">
+                            <div class="left-side">
+                                <h1 class="modalHeader-js"></h1>
+                                <p>Stockton Street</p>
+                            </div>
+                            <div class="right-side">
+                                Starts from:
+                                <span class="amount">$1000</span>
+                            </div>
+                        </div>
+                        <div class="info-bar">
+                            <div class="info-wrapper">
+                                <div class="info-icon">
+                                    <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                    </svg>
+                                </div>
+                                <span>2 Bedrooms</span>
+                            </div>
+                            <div class="info-wrapper">
+                                <div class="info-icon">
+                                    <svg class="btn-icon feather feather-wind" xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
+                                    </svg>
+                                </div>
+                                <span>2 Bathrooms</span>
+                            </div>
+                            <div class="info-wrapper">
+                                <div class="info-icon">
+                                    <svg class="btn-icon feather feather-square" xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    </svg>
+                                </div>
+                                <span>1250m2</span>
+                            </div>
+                            <div class="info-wrapper">
+                                <div class="info-icon">
+                                    <svg class="btn-icon feather feather-shield" xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    </svg>
+                                </div>
+                                <span>Highly Secured</span>
+                            </div>
+                        </div>
+                        <div class="desc-wrapper">
+                            <div class="modal-info-header">
+                                <h1>Description</h1>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                    pariatur.
+                                </p>
+                            </div>
+                            <div class="desc-actions">
+                                <button class="btn-book">Book Now</button>
+                                <div class="add-favourite">
+                                    <input type="checkbox" id="favourite">
+                                    <label for="favourite">
+                                        <span class="favourite-icon">
+                                            <svg class="btn-icon feather feather-heart"
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path
+                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                                            </svg>
+                                        </span>
+                                        <span>Add to favourites</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-right">
+                        <div class="app-main-right-header">
+                            <span>Reviews</span>
+                            <a href="">See All</a>
+                        </div>
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <div class="profile-info-wrapper">
+                                    <div class="profile-img-wrapper">
+                                        <img src="https://source.unsplash.com/featured/1200x900/?woman,cool"
+                                            alt="Review">
+                                    </div>
+                                    <p>Jessica Finnick</p>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris</p>
+                            </div>
+                        </div>
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <div class="profile-info-wrapper">
+                                    <div class="profile-img-wrapper">
+                                        <img src="https://source.unsplash.com/featured/1200x900/?woman,latina"
+                                            alt="Review">
+                                    </div>
+                                    <p>Gloria Ramirez</p>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris</p>
+                            </div>
+                        </div>
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <div class="profile-info-wrapper">
+                                    <div class="profile-img-wrapper">
+                                        <img src="https://source.unsplash.com/featured/1200x900/?man,art" alt="Review">
+                                    </div>
+                                    <p>Luck Besson</p>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris</p>
+                            </div>
+                        </div>
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <div class="profile-info-wrapper">
+                                    <div class="profile-img-wrapper">
+                                        <img src="https://source.unsplash.com/featured/1200x900/?woman,adventure"
+                                            alt="Review">
+                                    </div>
+                                    <p>Luna Rosa</p>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris</p>
+                            </div>
+                        </div>
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <div class="profile-info-wrapper">
+                                    <div class="profile-img-wrapper">
+                                        <img src="https://source.unsplash.com/featured/1200x900/?man,modern"
+                                            alt="Review">
+                                    </div>
+                                    <p>John mayer</p>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris</p>
+                            </div>
+                        </div>
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <div class="profile-info-wrapper">
+                                    <div class="profile-img-wrapper">
+                                        <img src="https://source.unsplash.com/featured/1200x900/?woman" alt="Review">
+                                    </div>
+                                    <p>Tina Finnick</p>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris</p>
+                            </div>
+                        </div>
+                        <div class="card-wrapper">
+                            <div class="card">
+                                <div class="profile-info-wrapper">
+                                    <div class="profile-img-wrapper">
+                                        <img src="https://source.unsplash.com/featured/1200x900/?woman,modern"
+                                            alt="Review">
+                                    </div>
+                                    <p>July Wallock</p>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                    exercitation ullamco laboris</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button class="btn btn-close" onclick={closeM}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-x">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            </div>
+        </section>
+
+
+
+    </template>
+</template>

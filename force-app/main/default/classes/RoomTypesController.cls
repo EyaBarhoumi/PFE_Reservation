@@ -49,10 +49,10 @@ public with sharing class RoomTypesController {
     @AuraEnabled(cacheable=true)
     public static list <RoomType__c> getRoomType(Id RoomTypeID){
         return [ 
-            SELECT  Name, PricePerNight__c ,TotalRoomsAvailable__c,Hotel__c
+            SELECT  Name, PricePerNight__c ,TotalRoomsAvailable__c,Hotel__c ,RoomType_Picture__c
             FROM RoomType__c
             WHERE Id=:RoomTypeID 
-            WITH SECURITY_ENFORCED
+           
             ] ;
     }
 
@@ -70,7 +70,7 @@ public with sharing class RoomTypesController {
     public static List<RoomType__c> getRoomTypes(){
         return [ SELECT  Name, PricePerNight__c ,TotalRoomsAvailable__c,Hotel__c
                 FROM RoomType__c
-                WITH SECURITY_ENFORCED];
+               ];
     }
 
 

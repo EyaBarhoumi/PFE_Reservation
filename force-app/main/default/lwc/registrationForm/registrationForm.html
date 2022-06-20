@@ -17,8 +17,6 @@
                                     </template>
                                     </select>
                                     </div>
-                           
-                           
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -39,6 +37,7 @@
                                     <div class="form-group">
                                         <span class="form-label">Guests</span>
                                         <select class="form-control" onchange={handleGetCapacity}>
+                                            <option ></option>
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -89,7 +88,7 @@
             <template if:true={miaw} >
                 <div class="card" for:each={rooms} for:item="room" key={room.id}>
                     <div class="card-image">
-                      <div class="background-image"></div>
+                      <img class="background-image" alt="" src={room.Room_Type__r.Hotel__r.Hotel_Picture_Url__c}>
                       <div class="publication-details">
                         <a href="#" class="author">
                           <i class="far fa-user"> {room.Room_Type__r.Hotel__r.Name}  </i>
@@ -103,9 +102,9 @@
                       <h2 class="subtitle">Phone: {room.Room_Type__r.Hotel__r.Phone_Number__c}</h2>
                       <p class="description"> Description: {room.Room_Type__r.Hotel__r.Description__c}
                       </p>
-                      <button data-id={room.Room_Type__r.Hotel__c} key={room.Id} onclick={Reserve}>CLICK ME </button>
+                      <button class="button-36" data-id={room.Room_Type__r.Hotel__c} key={room.Id} onclick={Reserve}>CLICK Here </button>
                       <div class="cta">
-                        <a href="#">Read more &rarr;</a>
+                        <!-- <a href="#">Read more &rarr;</a> -->
                       </div>
                     </div>
                   </div>

@@ -21,7 +21,7 @@ public with sharing class ReservationController {
              }
            
     
-            List<Room__c> foundRooms = [SELECT Name, RoomPrice__c, Room_Type__c, Room_Type__r.hotel__r.name, Room_Type__r.hotel__r.Description__c, Room_Type__r.hotel__r.Phone_Number__c FROM Room__c
+            List<Room__c> foundRooms = [SELECT Name, RoomPrice__c, Room_Type__c, Room_Type__r.hotel__r.name, Room_Type__r.hotel__r.Description__c, Room_Type__r.hotel__r.Phone_Number__c ,Room_Type__r.Hotel__r.Hotel_Picture_Url__c FROM Room__c
              WHERE Id NOT IN :reservedRooms
              AND Capacity__c = :capacity
              //AND  Room_Type__r.Hotel__r.City__c  LIKE :city

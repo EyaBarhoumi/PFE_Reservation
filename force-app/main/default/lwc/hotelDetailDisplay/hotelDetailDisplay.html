@@ -1,24 +1,24 @@
 <template>
 
 
-   
+
     <div class="col-md-12 room-single mt-4 mb-5 ftco-animate ">
-        <div  for:each={Hotels} for:item="hotel"  key={hotel.Id} > 
-        <h1> </h1>
-        <img src={hotel.Hotel_Picture_Url__c} alt="">
-              <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-              <div class="d-md-flex mt-5 mb-5">
-                  <ul class="list">
-                      <li><span>Max:</span> 3 Persons</li>
-                      <li><span>Size:</span> 45 m2</li>
-                      <li><span>Name</span> {hotel.Name} </li>
-                  </ul>
-                  <ul class="list ml-md-5">
-                      <li><span>View:</span> Sea View</li>
-                      <li><span>Bed:</span> 1</li>
-                  </ul>
-              </div>
-              <p> {hotel.Description__c}</p>
-            </div> 
-            </div>       
+        <div for:each={Hotels} for:item="hotel" key={hotel.Id}>
+            <h1> </h1>
+            <img src={hotel.Hotel_Picture_Url__c} alt="">
+            <p>{hotel.Description__c}</p>
+            <div class="d-md-flex mt-5 mb-5">
+                <ul class="list">
+                    <li><span>Name</span> : {hotel.Name} </li>
+                    <li><span>City :</span>{hotel.City__c}</li>
+
+                </ul>
+                <ul class="list ml-md-5">
+                    <li><span>Number :</span>{hotel.Phone_Number__c}</li>
+
+                </ul>
+            </div>
+            <p> {hotel.Description__c}</p>
+        </div>
+    </div>
 </template>
