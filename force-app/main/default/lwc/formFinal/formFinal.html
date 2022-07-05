@@ -1,0 +1,108 @@
+<template>
+  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+    
+    <input type=hidden name="oid" value="00D8d000002bryN">
+    <input type=hidden name="retURL" value="http://">
+   
+    <div class="container">
+      <div class="title">NEW QUICK RESERVATION</div>
+      <div class="two-columns-container">
+        <div class="input-radio">
+          <div>
+            <div class="input-rows">
+              <div>
+                <p class="input"></p>
+                <input  id="company" maxlength="40" name="company" size="20" value="default" type="hidden" /><br>
+              </div>
+              <!-- <div>
+                <p class="input">Input</p>
+                <select class="select-holder">
+                  <option>a</option>
+                  <option>azeaze</option>
+                  <option>zezegzegzegezezegzegzege</option>
+                </select>
+              </div>
+              <div>
+                <p class="input">Input</p>
+                <select class="select-holder">
+                  <option>a</option>
+                  <option>azeaze</option>
+                  <option>zezegzegzege</option>
+                </select>
+              </div>
+              <div>
+                <p class="input">Input</p>
+                <select class="select-holder">
+                  <option>a</option>
+                  <option>azeaze</option>
+                  <option>zezegzegzege</option>
+                </select>
+              </div> -->
+            </div>
+            <div class="input-rows">
+              <div>
+                <p class="input">Full Name</p>
+                <input   id="00N8d00000F4q7e" maxlength="20" name="00N8d00000F4q7e" size="20" type="text" />
+              </div>
+              <div>
+                <p class="input">last_name</p>
+                <input id="last_name" maxlength="80" name="last_name" size="20" type="text" />
+              </div>
+              <div>
+                <p class="input">first_name</p>
+                <input id="first_name" maxlength="40" name="first_name" size="20" type="text" />
+              </div>
+            </div>
+            <div class="input-rows">
+              <div>
+                <p class="input">email</p>
+                <input id="email" maxlength="80" name="email" size="20" type="text" />
+              </div>
+              <div>
+                <p class="input">phone</p>
+                <input id="phone" maxlength="40" name="phone" size="20" type="text" />
+              </div>
+
+              <div>
+                <p class="input">Cin</p>
+                <input id="00N8d00000As9VG" maxlength="8" name="00N8d00000As9VG" size="20" type="text" />
+              </div>
+              <div>
+                <p class="input">Date of Birth</p>
+                <input id="00N8d00000B59Rw" name="00N8d00000B59Rw" size="12"  type="date" />
+              </div>
+            </div>
+          </div>
+        
+        </div>
+     
+        <div>
+          <div>
+            <h4>Hello</h4>
+            <p class="data__description">{daTaa.begin}</p>
+          </div>
+          <div>
+            <h4>Hello</h4>
+            <p class="data__description">{daTaa.end}</p>
+          </div>
+          <div>
+            <h4>Hello</h4>
+            <p class="data__description">{daTaa.HotelName}</p>
+          </div>
+        </div>
+
+      </div>
+
+  
+      <div class="buttons">
+        <input type="button" value="helo" />
+        <input type="button" value="helo2" />
+        <lightning-button label="Save" type="submit" class="save" variant="brand">
+        </lightning-button>
+      </div>
+    </div>
+  </form>
+
+
+
+</template>

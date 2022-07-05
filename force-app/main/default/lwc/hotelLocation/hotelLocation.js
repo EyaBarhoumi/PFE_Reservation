@@ -33,7 +33,7 @@ export default class HotelLocation extends LightningElement {
     }
   }
 
-  @wire(getHotelByID, { HotelId: '$HotelId', fields: hotelFields })
+  @wire(getRecord, { recordId: '$HotelId', fields: hotelFields })
   loadHotels({ error, data }) {
     if (error) {
       // TODO: handle error
@@ -58,6 +58,7 @@ export default class HotelLocation extends LightningElement {
       const Latitude = getFieldValue(data, LOCATION_LATITUDE_FIELD);
       const Longitude = getFieldValue(data, LOCATION_LONGITUDE_FIELD);
       // Transform Hotel data into map markers
+      console.log("params",Latitude,Longitude);
       this.mapMarkers = [
         {
           location: { Latitude, Longitude },

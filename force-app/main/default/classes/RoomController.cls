@@ -12,7 +12,7 @@ public with sharing class RoomController {
 @AuraEnabled(cacheable=true)
     public static List<Room__c> getRoomList() {
         return [
-            SELECT Name, RoomCapacity__c ,RoomStatus__c,RoomView__c
+            SELECT Name ,RoomStatus__c,RoomView__c
             FROM Room__c
             WITH SECURITY_ENFORCED
         ];

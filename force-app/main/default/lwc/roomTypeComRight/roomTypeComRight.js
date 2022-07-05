@@ -1,10 +1,10 @@
 import { LightningElement, wire, track } from 'lwc';
 
 export default class RoomTypeComRight extends LightningElement {
-    @track modal=false ; 
+    // @track modal=false ; 
 
-    openmodal(){
-        this.modal=true;
-    }
+    // openmodal(){
+    //     this.modal=true;
+    // }
 
 }

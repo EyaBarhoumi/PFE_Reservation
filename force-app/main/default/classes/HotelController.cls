@@ -57,7 +57,7 @@ public with sharing class HotelController {
     public static List<Hotel__c> getHotelByID( Id HotelId){
         return [
             SELECT
-            Name, Description__c ,Hotel_Picture_Url__c,Hotel_Location__Latitude__s,Hotel_Location__Longitude__s,Phone_Number__c,City__c
+            Name, Description__c ,Hotel_Picture_Url__c,Hotel_Location__Latitude__s,Hotel_Location__Longitude__s,Phone_Number__c,City__c,Stars__c
             FROM Hotel__c 
             WHERE Id = :HotelId];
     }
@@ -68,12 +68,11 @@ public with sharing class HotelController {
             
         Date beginDate = Date.valueOf(ResDetails.get('begin'));
         Date endDate = Date.valueOf(ResDetails.get('end'));
-
         string capacity = ResDetails.get('capacity');
         string Hotel = ResDetails.get('HotelId');
-            system.debug('hello');
-            system.debug(beginDate);   
-            system.debug(endDate);
+            // system.debug('hello');
+            // system.debug(beginDate);   
+            // system.debug(endDate);
             
             List<Id> reservedRooms = new List<Id>();
 
@@ -85,13 +84,31 @@ public with sharing class HotelController {
              }
            
     
-            List<Room__c> foundRooms = [SELECT Name, RoomPrice__c, Room_Type__c, Room_Type__r.name, Room_Type__r.RoomType_Picture__c,Room_Type__r.hotel__r.City__c FROM Room__c
+            List<Room__c> foundRooms = [SELECT Name,Capacity__c, RoomPrice__c, Room_Type__c, Room_Type__r.name, Room_Type__r.RoomType_Picture__c,Room_Type__r.hotel__r.City__c , Room_Type__r.hotel__r.name FROM Room__c
              WHERE Id NOT IN :reservedRooms 
              AND Capacity__c = :capacity 
              AND  Room_Type__r.Hotel__c  = :Hotel
-             ORDER BY Name ASC];
+             ORDER BY Name ASC
+             ];
 
-            return foundRooms;
+          
+              for(integer i=0;i<foundRooms.size();i++) {
+                Room__c hospi = foundRooms.get(i);
+                 for(integer j=0;j<foundRooms.size();j++) {
+                  
+                    Room__c hospj = foundRooms.get(j); 
+                     if(hospi.Room_Type__r.Name == hospj.Room_Type__r.Name && i!=j) {
+                        foundRooms.remove(j); 
+                         system.debug('REMOVED::'+j);  
+                     }
+                 }
+             }
+
+             if (foundRooms.size() > 0) {
+                return foundRooms;
+            } else {
+                return null;
+            }
 
          }
 

@@ -1,44 +1,84 @@
 <template>
-<!--  ----------------------------------------------------------------------  -->
-<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
-<!--  If necessary, please modify the charset parameter to specify the        -->
-<!--  character set of your HTML page.                                        -->
-<!--  ----------------------------------------------------------------------  -->
+  <lightning-progress-indicator current-step="2" type="base" variant="base">
+    <lightning-progress-step label="Your selection" value="1"></lightning-progress-step>
+    <lightning-progress-step label="Your details" value="2"></lightning-progress-step>
+    <lightning-progress-step label="Final step" value="3"></lightning-progress-step>
+</lightning-progress-indicator>
 
-<!-- <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"> -->
+  <div class="slds-p-around_medium lgc-bg">
 
-    <!--  ----------------------------------------------------------------------  -->
-    <!--  NOTE: Please add the following <FORM> element to your page.             -->
-    <!--  ----------------------------------------------------------------------  -->
-    
-    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
-    
-    <input type=hidden name="oid" value="00D8d000002bryN">
-    <input type=hidden name="retURL" value="http://">
-    
-    <!--  ----------------------------------------------------------------------  -->
-    <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-    <!--  these lines if you wish to test in debug mode.                          -->
-    <!--  <input type="hidden" name="debug" value=1>                              -->
-    <!--  <input type="hidden" name="debugEmail"                                  -->
-    <!--  value="eya.barhoumi@outlook.com">                                       -->
-    <!--  ----------------------------------------------------------------------  -->
-    
-    <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
-    
-    <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
-    
-    <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
-    
-    <label for="company"></label><input  id="company" maxlength="40" name="company" size="20" value="default" type="hidden" /><br>
-    
-    UserName:<input  id="00N8d00000F4q7e" maxlength="20" name="00N8d00000F4q7e" size="20" type="text" /><br>
-    
-    Cin:<input  id="00N8d00000As9VG" maxlength="8" name="00N8d00000As9VG" size="20" type="text" /><br>
-    
-    Date of birth:<span class="dateInput dateOnlyInput"><input  id="00N8d00000B59Rw" name="00N8d00000B59Rw" size="12" type="text" /></span><br>
-    
-    <input type="submit" name="submit">
-    
-    </form>
+    <div class="slds-grid slds-gutters">
+      <div class="slds-col">
+        <lightning-input type="text" label="Full Name" onchange={handleUserNameChange} placeholder="type here...">
+        </lightning-input>
+      </div>
+    </div>
+
+    <div class="slds-grid slds-gutters">
+      <div class="slds-col">
+        <lightning-input type="text" label="First Name" onchange={handleFirstNameChange} placeholder="type here...">
+        </lightning-input>
+      </div>
+      <div class="slds-col">
+        <lightning-input type="text" label="Last Name" onchange={handleLastNameChange} placeholder="type here...">
+        </lightning-input>
+      </div>
+
+    </div>
+    <div class="slds-grid slds-gutters">
+      <div class="slds-col">
+        <lightning-input type="email" onchange={handleEmailChange} label="Email address"></lightning-input>
+      </div>
+      <div class="slds-col">
+        <lightning-input type="tel" onchange={handlePhoneChange} label="Phone Number"></lightning-input>
+      </div>
+
+    </div>
+
+
+
+    <div class="slds-grid slds-gutters">
+      <div class="slds-col">
+        <lightning-input type="text" onchange={handleCinChange} label="CIN"></lightning-input>
+      </div>
+      <div class="slds-col">
+        <lightning-input type="text" onchange={handleAgeChange} label="Age"></lightning-input>
+        <!-- <lightning-input type="date" onchange={handleDateOfBirthChange} label="Date of Birth"></lightning-input> -->
+      </div>
+
+    </div>
+    <!-- <div class="slds-grid slds-gutters">
+      <div class="slds-col">
+        <lightning-input type="text" label="Adress" onchange={handleAdressChange}></lightning-input>
+      </div>
+      <div class="slds-col">
+        <lightning-input type="text" label="Any Social Media link"></lightning-input>
+      </div>
+    </div> -->
+    <div>
+      <div>
+        <h4>Hello</h4>
+        <p class="data__description">{daTaa.begin}</p>
+      </div>
+      <div>
+        <h4>Hello</h4>
+        <p class="data__description">{daTaa.end}</p>
+      </div>
+      <div>
+        <h4>Hello</h4>
+        <p class="data__description">{daTaa.HotelName}</p>
+      </div>
+    </div>
+
+    <button class="custom-btn btn-2" onclick={submitDetails}>Submit Reservation</button>
+  </div>
+
+ 
+ 
+
+
+
+
+
+
 </template>

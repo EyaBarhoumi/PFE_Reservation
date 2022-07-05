@@ -8,6 +8,11 @@ export default class CreateLeadRec extends NavigationMixin(LightningElement) {
   handleSuccess(event) {
     this.recId = event.detail.id;
   }
+
+
+  handleChange(event) {
+    console.log('You selected a hotel: ' + event.detail.value[0]);
+} 
   showToast(title, variant, message) {
     const event = new ShowToastEvent({
       title: title,

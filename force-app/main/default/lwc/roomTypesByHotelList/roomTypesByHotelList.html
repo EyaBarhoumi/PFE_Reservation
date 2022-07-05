@@ -1,72 +1,32 @@
 <template>
-  <!-- <section class="ftco-section bg-light">
-        <div class="container">
-          <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-7 heading-section text-center ftco-animate">
-              <h2 class="mb-4">Related Room Types</h2>
-            </div>
-          </div>
-          <div class="row">
-            <template if:true={Rooms}>
-              <template for:each={Rooms} for:item="room">
-              <div  key={room.Id} class="col-sm col-md-6 col-lg-4 ftco-animate">  
-                <div class="room">
-                 
-                  <img   data-id={room.Id} key={room.Id} onclick={handleHotelDetail} src="#" alt=""> -->
-  <!-- <div
-                      class="icon d-flex justify-content-center align-items-center"
-                    >
-                      <span class="icon-search2"></span>
-                    </div>
-                  </a> -->
-  <!-- <div class="text p-3 text-center">
-                    <h3 class="mb-3"> <a href="rooms.html">{room.Name}</a></h3>
-                    <p>
-                      <span class="price mr-2">{room.PricePerNight__c}</span>
-                      <span class="per">City</span>
-                    </p>
-                    <hr />
-                    <p class="pt-1">
-                      <a href="room-single.html" class="btn-custom"
-                        >View Hotel Details
-                        <span class="icon-long-arrow-right"></span
-                      ></a>
-                    </p>
-                  </div>
-                </div>
-            
-            </div>
-              </template>
-            </template>
-          </div>
-        </div>
-      </section> -->
 
 
-      <div class="container">
-        <!-- here you'll have the wrap -->
-        <div class="card-row ">
-          <!-- this is a card -->
-          <template if:true={Rooms}>
-            <template for:each={Rooms} for:item="room">
-              <div class="card" key={room.Id}>
-                <img  src={room.RoomType_Picture__c} alt="" >
-                <!-- <a class="img" style="background-image: url({room.RoomType_Picture__c})"></a> -->
-                <div class="text">
-                  <div class="title">{room.Name}</div>
-                  <div class="price-per">
-                    <span class="price">${room.PricePerNight__c}</span>
-                    <span class="per">per night</span>
-                  </div>
-                  <hr class="hr" />
-                  <p class="details" onclick={handleHotelDetail} >View Room Details</p>
-                </div>
+
+  <div class="app-main-right cards-area">
+    <div class="app-main-right-header">
+      <span>Related Room Types</span>
+
+    </div>
+    <div class="card-wrapper main-card">
+      <template if:true={Rooms}>
+        <template for:each={Rooms} for:item="room">
+          <a class="card cardItemjs" onclick={openmodal} key={room.Id}>
+            <div class="card-image-wrapper">
+              <img src={room.RoomType_Picture__c}>
+            </div>
+            <div class="card-info">
+              <div class="card-text big cardText-js">{room.Name}</div>
+              <div class="card-text small">{room.Hotel__r.Name}</div>
+              <div class="card-text small">
+                Starts from:
+                <span class="card-price">${room.PricePerNight__c}</span>
               </div>
-            </template>
-          </template>
-        </div>
-      </div>
+            </div>
+          </a>
+        </template>
+      </template>
+    </div>
+  </div>
 
 
-
-    </template>
+</template>

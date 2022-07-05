@@ -15,7 +15,7 @@ public with sharing class RoomTypesController {
     @AuraEnabled(Cacheable=true)
     public static List<RoomType__c> getRoomsTypesByHotelID( Id HotelId){
         return [
-            SELECT Name, PricePerNight__c ,TotalRoomsAvailable__c,Hotel__c
+            SELECT Name, PricePerNight__c ,TotalRoomsAvailable__c,Hotel__c,RoomType_Picture__c,Hotel__r.Name
             FROM RoomType__c
             WHERE Hotel__c = :HotelId];
     }

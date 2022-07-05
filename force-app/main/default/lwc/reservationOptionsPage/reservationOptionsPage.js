@@ -17,6 +17,7 @@ export default class ReservationOptionsPage extends NavigationMixin(
   LightningElement
 ) {
   HotelId = "";
+  HotelName = "";
   capacity = "";
   Edate = "";
   Sdate = "";
@@ -50,11 +51,12 @@ export default class ReservationOptionsPage extends NavigationMixin(
   @wire(getRoomsByHotel, { ResDetails: "$daTaa" }) WiredData({ data, error }) {
     if (data) {
       this.Hotello = data;
+      this.HotelName = data[0].Room_Type__r.Hotel__r.Name;
       console.log("🚀🚀");
       console.log(data);
     } else if (error) {
       console.log(error);
-      console.log("💀");
+      console.log("💀💀");
     }
   }
 
@@ -66,11 +68,14 @@ export default class ReservationOptionsPage extends NavigationMixin(
     console.log("clickewi");
     this.roomTypeId = event.target.dataset.idd;
     console.log(this.roomTypeId);
+
     CheckRes({ RoomType: this.roomTypeId })
       .then((result) => {
         console.log("🚀🚀");
         console.log(result.length);
+        console.log("deyta", this.daTaa);
         console.log("number of rooms" + this.NumberOfRooms);
+
         if (result.length >= this.NumberOfRooms) {
           this.dispatchEvent(
             new ShowToastEvent({
@@ -80,6 +85,15 @@ export default class ReservationOptionsPage extends NavigationMixin(
 
               variant: "success"
             })
+          );
+          this[NavigationMixin.Navigate](
+            {
+              type: "standard__webPage",
+              attributes: {
+                url: `/formwithsteps/?Data=${this.daTaa.capacity}/${this.daTaa.end}/${this.daTaa.begin}/${this.roomTypeId}/${this.NumberOfRooms}/${this.HotelName}/${this.daTaa.HotelId}`
+              }
+            },
+            true
           );
         } else {
           console.log("allah ghaleb");
@@ -95,6 +109,7 @@ export default class ReservationOptionsPage extends NavigationMixin(
         }
       })
       .catch((error) => {
+        console.log("💀");
         console.log("💀");
         console.log(error);
       });

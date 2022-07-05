@@ -4,7 +4,6 @@ public with sharing class ReservationController {
             
         Date beginDate = Date.valueOf(ResDetails.get('begin'));
         Date endDate = Date.valueOf(ResDetails.get('end'));
-
         string capacity = ResDetails.get('capacity');
         string city = ResDetails.get('city');
             system.debug('hello');
@@ -19,18 +18,31 @@ public with sharing class ReservationController {
              for (Reserved_Room__c item : reservationList) {
                 reservedRooms.add(item.Room__c);
              }
-           
-    
-            List<Room__c> foundRooms = [SELECT Name, RoomPrice__c, Room_Type__c, Room_Type__r.hotel__r.name, Room_Type__r.hotel__r.Description__c, Room_Type__r.hotel__r.Phone_Number__c ,Room_Type__r.Hotel__r.Hotel_Picture_Url__c FROM Room__c
+
+             // test
+             List<Room__c> foundRooms = [SELECT Name, RoomPrice__c,Capacity__c, Room_Type__c, Room_Type__r.Hotel__c , Room_Type__r.hotel__r.name, Room_Type__r.hotel__r.Description__c, Room_Type__r.hotel__r.Phone_Number__c ,Room_Type__r.Hotel__r.Hotel_Picture_Url__c,Room_Type__r.Hotel__r.City__c FROM Room__c
              WHERE Id NOT IN :reservedRooms
              AND Capacity__c = :capacity
-             //AND  Room_Type__r.Hotel__r.City__c  LIKE :city
-             ORDER BY Name ASC];
+             AND  Room_Type__r.Hotel__r.City__c  LIKE :city
+             ORDER BY Name ASC
+             ];
 
-
-
-
-            return foundRooms;
+              for(integer i=0;i<foundRooms.size();i++) {
+                Room__c hospi = foundRooms.get(i);
+                 for(integer j=0;j<foundRooms.size();j++) {
+                  
+                    Room__c hospj = foundRooms.get(j); 
+                     if(hospi.Room_Type__r.hotel__r.name == hospj.Room_Type__r.hotel__r.name && i!=j) {
+                        foundRooms.remove(j); 
+                         system.debug('REMOVED::'+j);  
+                     }
+                 }
+             }
+             if (foundRooms.size() > 0) {
+                return foundRooms;
+            } else {
+                return null;
+            }
 
          }
          

@@ -10,13 +10,13 @@
                                 <input class="form-control" type="text" placeholder="Destination ..." onchange={handleGetCity}> -->
                                 <div class="slds-col slds-size_6-of-12 slds-p-horizontal--medium slds-m-bottom_medium">
                                     <label class="slds-form-element__label" for=" member">
-                                      <strong> City </strong></label>
-                                <select  class="slds-select" name="city" onchange={handleGetCity} id="City">
-                                    <template for:each={City.data} for:item="hot">
-                                    <option key={hot.Id} value={hot.City__c}>{hot.City__c}</option>
-                                    </template>
+                                        <strong> City </strong></label>
+                                    <select class="slds-select" name="city" onchange={handleGetCity} id="City">
+                                        <template for:each={City.data} for:item="hot">
+                                            <option key={hot.Id} value={hot.City__c}>{hot.City__c}</option>
+                                        </template>
                                     </select>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -24,23 +24,25 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <span class="form-label">Check In</span>
-                                        <input class="form-control" type="date" required  onchange={handleSDate} >
+                                        <input class="form-control" type="date" required onchange={handleSDate}>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <span class="form-label">Check out</span>
-                                        <input class="form-control" type="date" required  onchange={handleEDate} >
+                                        <input class="form-control" type="date" required onchange={handleEDate}>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <span class="form-label">Guests</span>
                                         <select class="form-control" onchange={handleGetCapacity}>
-                                            <option ></option>
+                                            <option></option>
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
                                         </select>
                                         <span class="select-arrow"></span>
                                     </div>
@@ -50,8 +52,8 @@
                         <div class="col-md-3">
                             <div class="form-btn">
                                 <!-- <button class="submit-btn"  onclick={CheckRes}>Check availability</button> -->
-                                <lightning-button variant="brand" label="Check availability" title="Primary action" onclick={CheckRes}
-        class="slds-var-m-left_x-small"></lightning-button>
+                                <lightning-button variant="brand" label="Check availability" title="Primary action"
+                                    onclick={CheckRes} class="slds-var-m-left_x-small"></lightning-button>
                             </div>
                         </div>
                     </div>
@@ -80,34 +82,35 @@
             </div>
         
             </template> -->
-        
-     
-        
+
+
+
+    </div>
+
+    <template if:true={miaw}>
+        <div class="card" for:each={rooms} for:item="room" key={room.id}>
+            <div class="card-image">
+                <img class="background-image" alt="" src={room.Room_Type__r.Hotel__r.Hotel_Picture_Url__c}>
+                <div class="publication-details">
+                    <a href="#" class="author">
+                        <i class="far fa-user"> {room.Room_Type__r.Hotel__r.Name} </i>
+                    </a>
+                    <span class="date"><i class="fas fa-calendar-alt"></i> {room.RoomPrice__c} $</span>
+                </div>
             </div>
 
-            <template if:true={miaw} >
-                <div class="card" for:each={rooms} for:item="room" key={room.id}>
-                    <div class="card-image">
-                      <img class="background-image" alt="" src={room.Room_Type__r.Hotel__r.Hotel_Picture_Url__c}>
-                      <div class="publication-details">
-                        <a href="#" class="author">
-                          <i class="far fa-user"> {room.Room_Type__r.Hotel__r.Name}  </i>
-                          </a>
-                        <span class="date"><i class="fas fa-calendar-alt"></i>  {room.RoomPrice__c} $</span>
-                      </div>
-                    </div>
-              
-                    <div class="card-content">
-                      <h1 class="title">{room.Room_Type__r.Hotel__r.Name}</h1>
-                      <h2 class="subtitle">Phone: {room.Room_Type__r.Hotel__r.Phone_Number__c}</h2>
-                      <p class="description"> Description: {room.Room_Type__r.Hotel__r.Description__c}
-                      </p>
-                      <button class="button-36" data-id={room.Room_Type__r.Hotel__c} key={room.Id} onclick={Reserve}>CLICK Here </button>
-                      <div class="cta">
-                        <!-- <a href="#">Read more &rarr;</a> -->
-                      </div>
-                    </div>
-                  </div>
-            </template>
+            <div class="card-content">
+                <h1 class="title">{room.Room_Type__r.Hotel__r.Name}</h1>
+                <h2 class="subtitle">Phone: {room.Room_Type__r.Hotel__r.Phone_Number__c}</h2>
+                <p class="description"> Description: {room.Room_Type__r.Hotel__r.Description__c}
+                </p>
+                <button class="button-36" data-id={room.Room_Type__r.Hotel__c} key={room.Id} onclick={Reserve}>CLICK
+                    Here </button>
+                <div class="cta">
+                    <!-- <a href="#">Read more &rarr;</a> -->
+                </div>
+            </div>
+        </div>
+    </template>
 
 </template>

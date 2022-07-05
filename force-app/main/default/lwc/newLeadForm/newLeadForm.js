@@ -1,7 +1,16 @@
-import { LightningElement, api, track } from 'lwc';
+import { LightningElement, api, track, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import leadFirstName from '@salesforce/schema/Lead.FirstName';
 import leadLastName from '@salesforce/schema/Lead.LastName';
+import { CurrentPageReference } from "lightning/navigation";
+
+
+var dataa = {
+  begin: "bla bla bla ",
+  end: "bla bla bla ",
+  capacity: "2",
+  HotelName: "bla bli"
+};
 export default class ExploreFormWizard extends LightningElement {
     @api recordId;
     @track currentStep;
@@ -22,6 +31,27 @@ export default class ExploreFormWizard extends LightningElement {
       FirstNameChange(event){
         this.getLeadRecord.FirstName = event.target.value;
         //window.console.log(this.getLeadRecord.Phone);
+     }
+
+
+     @wire(CurrentPageReference)
+     pageReference({ state }) {
+       if (state && state.Data) {
+         //this.HotelId = state.HotelId;
+         console.log(state.Data);
+         console.log("HEHI HEHI ID LAHNE HEEEEHI");
+         var splitted = state.Data.split("/");
+         console.log(splitted[0]);
+         this.daTaa.HotelId = splitted[0];
+         console.log(splitted[1]);
+         this.daTaa.capacity = splitted[1];
+         console.log(splitted[2]);
+         this.daTaa.begin = splitted[2];
+         console.log(splitted[3]);
+         this.daTaa.end = splitted[3];
+         console.log(this.daTaa);
+         console.log("🚀");
+       }
      }
      
        /*saveLeadAction(){

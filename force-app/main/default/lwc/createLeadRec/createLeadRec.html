@@ -3,19 +3,22 @@
         <div class="slds-m-around_medium">
 
             <lightning-input-field field-name='Name' required></lightning-input-field>
-
-
+            <lightning-input-field field-name='UserName__c' required></lightning-input-field>
             <lightning-input-field field-name='Phone'></lightning-input-field>
 
-
-            <lightning-input-field field-name='Address'></lightning-input-field>
-
             <lightning-input-field field-name="Cin__c"> </lightning-input-field>
-            <lightning-input-field type="date" field-name="Date_of_birth__c" label="Date of birth" placeholder="type here...">
+            <lightning-input-field type="date" field-name="Date_of_birth__c" label="Date of birth"
+                placeholder="type here...">
             </lightning-input-field>
             <lightning-input-field field-name="Email"></lightning-input-field>
-            <lightning-input-field field-name="Company"> </lightning-input-field>
-            <lightning-input-field field-name="Hotel__c"> </lightning-input-field>
+            <lightning-input-field field-name="Company" value="default"  class="slds-hidden"> </lightning-input-field>
+            
+
+            <!-- reservation  section  --> 
+
+
+            <lightning-input-field field-name="Hotel__c" onchange={handleChange} > </lightning-input-field> 
+            <lightning-input-field field-name="RoomType__c"> </lightning-input-field> 
             <lightning-input-field type="date" field-name="ReservationStartDate__c" label="Reservation start date"
                 placeholder="type here...">
             </lightning-input-field>
@@ -24,13 +27,12 @@
             </lightning-input-field>
             <lightning-input-field field-name="NumberOfGuests__c"> </lightning-input-field>
             <lightning-input-field field-name="NumberOfRooms__c"> </lightning-input-field>
+            <!-- reservation ends here -->
 
             <lightning-button class="slds-m-top_small" type="submit" label="Submit" name="Create Lead"
                 onclick={gotoThankyoupage}>
             </lightning-button>
         </div>
-
-
 
     </lightning-record-edit-form>
 </template>

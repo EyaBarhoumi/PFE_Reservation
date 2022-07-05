@@ -20,7 +20,7 @@ export default class RegistrationForm extends NavigationMixin(LightningElement) 
     @track startDt;
     @track endDt;
     @track capacity;
-    @track city="pz";
+    @track city;
   
     daTaa = {
         'capacity':'2'

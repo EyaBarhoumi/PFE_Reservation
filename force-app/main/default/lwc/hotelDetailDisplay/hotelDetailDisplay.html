@@ -2,23 +2,93 @@
 
 
 
-    <div class="col-md-12 room-single mt-4 mb-5 ftco-animate ">
-        <div for:each={Hotels} for:item="hotel" key={hotel.Id}>
-            <h1> </h1>
-            <img src={hotel.Hotel_Picture_Url__c} alt="">
-            <p>{hotel.Description__c}</p>
-            <div class="d-md-flex mt-5 mb-5">
-                <ul class="list">
-                    <li><span>Name</span> : {hotel.Name} </li>
-                    <li><span>City :</span>{hotel.City__c}</li>
-
-                </ul>
-                <ul class="list ml-md-5">
-                    <li><span>Number :</span>{hotel.Phone_Number__c}</li>
-
-                </ul>
+    <div class="main-modal">
+        <div class="modal-left">
+            <div for:each={Hotels} for:item="hotel" key={hotel.Id}>
+            <div class="modal-image-wrapper">
+                <img src={hotel.Hotel_Picture_Url__c}>
             </div>
-            <p> {hotel.Description__c}</p>
+            <div class="modal-info-header">
+                <div class="left-side">
+                    <h1 class="modalHeader-js"></h1>
+                    <p>{hotel.Name}</p>
+                </div>
+                <div class="right-side">
+                   Located in : 
+                    <span class="amount">{hotel.City__c}</span>
+                </div>
+            </div>
+            <div class="info-bar">
+                <div class="info-wrapper">
+                    <div class="info-icon">
+                        <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <span>2 Bedrooms</span>
+                </div>
+                <div class="info-wrapper">
+                    <div class="info-icon">
+                        <svg class="btn-icon feather feather-wind" xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2" />
+                        </svg>
+                    </div>
+                    <span>2 Bathrooms</span>
+                </div>
+                <div class="info-wrapper">
+                    <div class="info-icon">
+                        <svg class="btn-icon feather feather-square" xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                        </svg>
+                    </div>
+                    <span>1250m2</span>
+                </div>
+                <div class="info-wrapper">
+                    <div class="info-icon">
+                        <svg class="btn-icon feather feather-shield" xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <span>Highly Secured</span>
+                </div>
+            </div>
+            <div class="desc-wrapper">
+                <div class="modal-info-header">
+                    <h1>Description</h1>
+                    <p>
+                        {hotel.Description__c}
+                    </p>
+                </div>
+                <div class="desc-actions">
+                    <button class="btn-book">Book Now</button>
+                    <div class="add-favourite">
+                        <input type="checkbox" >
+                        <label for="favourite">
+                            <span class="favourite-icon">
+                                <svg class="btn-icon feather feather-heart"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                                </svg>
+                            </span>
+                            <span>Add to favourites</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
 </template>
