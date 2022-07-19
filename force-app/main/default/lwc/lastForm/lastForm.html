@@ -1,0 +1,85 @@
+<template>
+  
+    <lightning-progress-indicator current-step="2" type="base" variant="base">
+      <lightning-progress-step label="Your selection" value="1"></lightning-progress-step>
+      <lightning-progress-step label="Your details" value="2"></lightning-progress-step>
+      <lightning-progress-step label="Final step" value="3"></lightning-progress-step>
+  </lightning-progress-indicator>
+  
+    <div class="slds-p-around_medium lgc-bg">
+  
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+          <lightning-input type="text" label="Full Name" onchange={handleUserNameChange} placeholder="type here...">
+          </lightning-input>
+        </div>
+      </div>
+  
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+          <lightning-input type="text" label="First Name" onchange={handleFirstNameChange} placeholder="type here...">
+          </lightning-input>
+        </div>
+        <div class="slds-col">
+          <lightning-input type="text" label="Last Name" onchange={handleLastNameChange} placeholder="type here...">
+          </lightning-input>
+        </div>
+  
+      </div>
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+          <lightning-input type="email" onchange={handleEmailChange} label="Email address"></lightning-input>
+        </div>
+        <div class="slds-col">
+          <lightning-input type="tel" onchange={handlePhoneChange} label="Phone Number"></lightning-input>
+        </div>
+  
+      </div>
+  
+  
+  
+      <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+          <lightning-input type="text" onchange={handleCinChange} label="CIN"></lightning-input>
+        </div>
+        <div class="slds-col">
+          <lightning-input type="text" onchange={handleAgeChange} label="Age"></lightning-input>
+          <!-- <lightning-input type="date" onchange={handleDateOfBirthChange} label="Date of Birth"></lightning-input> -->
+        </div>
+  
+      </div>
+      <!-- <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+          <lightning-input type="text" label="Adress" onchange={handleAdressChange}></lightning-input>
+        </div>
+        <div class="slds-col">
+          <lightning-input type="text" label="Any Social Media link"></lightning-input>
+        </div>
+      </div> -->
+      <div>
+        <div>
+          <h4>Start Date</h4>
+          <p class="data__description">{daTaa.begin}</p>
+        </div>
+        <div>
+          <h4>End Date</h4>
+          <p class="data__description">{daTaa.end}</p>
+        </div>
+        <div>
+          <h4>Hotel name</h4>
+          <p class="data__description">{daTaa.HotelName}</p>
+        </div>
+      </div>
+  
+      <button class="custom-btn btn-2" onclick={submitDetails}>Submit Reservation</button>
+    </div>
+  
+   
+   
+  
+  
+  
+  
+  
+  
+  </template>

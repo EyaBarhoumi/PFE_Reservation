@@ -1,0 +1,14 @@
+<aura:component>
+    <aura:attribute name="items" type="Camping_Item__c[]"/>
+    <!-- PAGE HEADER -->
+    <div class="slds-page-header" role="banner">
+      <div class="slds-grid">
+        <div class="slds-col">
+          <p class="slds-text-heading--label">Camping items</p>
+          <h1 class="slds-text-heading--medium">Items</h1>
+        </div>
+      </div>
+    </div>
+    <!-- / PAGE HEADER -->
+	<c:campingList items="{!v.items}"/>
+</aura:component>

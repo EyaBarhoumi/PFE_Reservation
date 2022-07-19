@@ -41,12 +41,11 @@ public with sharing class HotelController {
 
 
     @AuraEnabled(Cacheable=true)
-    public static Hotel__c[] getAllHotels() {
+    public static List<Hotel__c> getAllHotels() {
         return [
             SELECT
             Name, Id, Description__c ,Hotel_Picture_Url__c,City__c,Hotel_Location__c,Hotel_Location__Latitude__s,Hotel_Location__Longitude__s,Phone_Number__c
             FROM Hotel__c
-
             ORDER BY Name
             LIMIT 50
         ];
@@ -176,7 +175,13 @@ public with sharing class HotelController {
     //         return hotel ;
     // }
 
+    @AuraEnabled( cacheable = true )
+    public static Integer getHotelsNumber() {
+        return [
+            SELECT COUNT()   
+            FROM Hotel__c];
 
+            }
 
 
 }

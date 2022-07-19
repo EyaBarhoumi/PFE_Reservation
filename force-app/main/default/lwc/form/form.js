@@ -4,10 +4,6 @@ import { ShowToastEvent } from "lightning/platformShowToastEvent";
 import { CurrentPageReference } from "lightning/navigation";
 import createLead from "@salesforce/apex/LeadController.createLead";
 
-
-
-
-
 var dataa = {
   begin: "bla bla bla ",
   end: "bla bla bla ",
@@ -15,16 +11,13 @@ var dataa = {
   HotelName: "bla bli"
 };
 
-
-export default class Form extends LightningElement {
+export default class Form extends NavigationMixin {
   @api recordLead;
   @api leadObject = {};
 
   daTaa = {
     capacity: "2"
   };
-
-
 
   @wire(CurrentPageReference)
   pageReference({ state }) {
@@ -46,20 +39,20 @@ export default class Form extends LightningElement {
       console.log(splitted[5]);
       this.daTaa.HotelName = splitted[5];
       console.log(splitted[6]);
-      console.log("machili aka l hotel "+splitted[6]);
+      console.log("machili aka l hotel " + splitted[6]);
       this.daTaa.HotelId = splitted[6];
       console.log(this.daTaa);
-      console.log("🚀")
+      console.log("🚀");
     }
   }
 
   submitDetails() {
-    this.leadObject.NumberOfGuests=this.daTaa.Capacity;
-    this.leadObject.NumberOfRooms=this.daTaa.NumberOfRooms;
-    this.leadObject.StartDate=this.daTaa.begin;
-    this.leadObject.EndDate=this.daTaa.end;
-    this.leadObject.RoomType=this.daTaa.roomTypeId;
-    this.leadObject.Hotel=this.daTaa.HotelId;
+    this.leadObject.NumberOfGuests = this.daTaa.Capacity;
+    this.leadObject.NumberOfRooms = this.daTaa.NumberOfRooms;
+    this.leadObject.StartDate = this.daTaa.begin;
+    this.leadObject.EndDate = this.daTaa.end;
+    this.leadObject.RoomType = this.daTaa.roomTypeId;
+    this.leadObject.Hotel = this.daTaa.HotelId;
     console.log("le lead :" + JSON.stringify(this.leadObject));
     createLead({ leadRecObj: this.leadObject })
       .then((result) => {
@@ -67,11 +60,37 @@ export default class Form extends LightningElement {
         console.log("success" + this.recordLead);
 
         this.leadObject = {};
+        this.dispatchEvent(
+          new ShowToastEvent({
+            title: "Done",
+
+            message: "stand by",
+
+            variant: "success"
+          })
+        );
+
+        this[NavigationMixin.Navigate]({
+          type: "standard__webPage",
+
+          attributes: {
+            url: `/thankyoupage`
+          }
+        });
       })
       .catch((error) => {
         this.error = error.message;
         console.log("errooorrr", error);
         this.errorAdd = true;
+        this.dispatchEvent(
+          new ShowToastEvent({
+            title: "erreur",
+
+            message: result.length,
+
+            variant: "error"
+          })
+        );
       });
   }
 
@@ -99,9 +118,5 @@ export default class Form extends LightningElement {
     this.leadObject.Age = event.target.value;
   }
 
-
-// Reservation fields of lead
-
-
-
+  // Reservation fields of lead
 }

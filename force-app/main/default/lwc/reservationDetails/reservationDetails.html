@@ -1,0 +1,87 @@
+<template>
+    <div class="container">
+        <div class="card-wrapper" for:each={All.data} for:item="rpb" key={rpb.Id}>
+          <div class="card-title-wrapper">
+            <div class="title-content">
+              <span class="title">
+               Reservation {rpb.Reservation_Number__c}
+              </span>
+              <span class="title-status">
+                {rpb.Status__c}
+              </span>
+            </div>
+            <!-- <div class="title-action">
+              <button class="action-button margin-right" type="button">
+              </button>
+              <button class="action-button margin-right" type="button">
+              </button>
+              <button class="action-button" type="button">
+              </button>
+            </div> -->
+          </div>
+          
+          <div class="card-content-wrapper">
+            <div class="card-information-wrapper">
+              <div class="information-wrapper car-name">
+                <div class="information-label">
+                  <!-- 차량 -->
+                </div>
+                <div class="information-content">
+                 Reservation Number {rpb.Reservation_Number__c}
+                </div>
+              </div>
+              <div class="information-wrapper start-at">
+                <div class="information-label">
+                  <!-- 수령 -->
+                </div>
+                <div class="information-content">
+                  <span class="content-time">
+                    {rpb.Reservation_Begin__c}
+                  </span>
+                  <span class="content-address">
+                   Number of Rooms : {rpb.Number_of_Reserved_Rooms__c}
+                  </span>
+                </div>
+              </div>
+              <div class="information-wrapper end-at">
+                <div class="information-label">
+                  
+                </div>
+                <div class="information-content">
+                  <span class="content-time">
+                    {rpb.Reservation_End__c}
+                  </span>
+                  <span class="content-address">
+                    Adults : {rpb.Number_Of_Guests__c}
+                  </span>
+                </div>
+              </div>
+              <div class="information-wrapper">
+                <div class="information-label">
+                  Res
+                </div>
+                <div class="information-memo-form">
+                  <div class="information-memo-input">
+                    <input type="text" />
+                  </div>
+                  <div class="information-memo-submit">
+                    <button type="button"> {rpb.Total_Reservation_Cost__c}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="card-form-wrapper">
+              <div class="form-wrapper">
+                <div class="form-select agency">
+                </div>
+                <div class="form-select commission">
+                </div>
+                <div class="form-submit">
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+</template>

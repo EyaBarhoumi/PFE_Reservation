@@ -1,0 +1,76 @@
+<apex:page controller="PdfToEmail" readOnly="true" applyHtmlTag="false" sidebar="false" showHeader="false" cache="true" renderAs="PDF">
+    <!-- Begin Default Content REMOVE THIS -->
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+
+
+
+        <style type="text/css">
+            @page {
+
+                size: A4 landscape;
+                border: 2px solid black;
+                padding-left: 8px;
+                padding-right: 8px;
+
+            }
+
+            th {
+                background-color: #f9e5e5 ; text-align: center;
+                font-weight: bold;
+
+            }
+
+
+            td {
+                text-align: center;
+                font-size: 14px;
+            }
+        </style>
+
+    </head>
+
+
+
+
+    <center>
+
+        <h3>This week reservation : {!DAY(TODAY()) - 6} / {!MONTH(TODAY())} / {!YEAR(TODAY())} ==> {!DAY(TODAY())} / {!MONTH(TODAY())}
+            / {!YEAR(TODAY())}</h3>
+
+
+    </center>
+    <br/>
+    <table border="1" width="99%">
+
+        <tr>
+
+            <th>Reservation Number</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Guests</th>
+            <th>Number Of rooms </th>
+
+        </tr>
+
+        <apex:repeat value="{!Reservations}" var="Reservation">
+            <tr>
+                <td>{!Reservation.Reservation_Number__c}</td>
+                <td>{!Reservation.Reservation_Begin__c}</td>
+                <td>{!Reservation.Reservation_End__c}</td>
+                <td>{!Reservation.Status__c}</td>
+                <td>{!Reservation.Number_Of_Guests__c}</td>
+                <td>{!Reservation.Number_of_Reserved_Rooms__c}</td>
+            </tr>
+        </apex:repeat>
+
+
+    </table>
+    <center>
+        <p>This is an automatically generated email, please do not reply.</p>
+    </center>
+
+    <!-- End Default Content REMOVE THIS -->
+</apex:page>

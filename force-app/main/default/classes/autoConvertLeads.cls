@@ -23,5 +23,3 @@ public with sharing class autoConvertLeads {
     } 
 
 }
-
-

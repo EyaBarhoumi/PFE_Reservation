@@ -97,7 +97,26 @@ public with sharing class ReservationController {
      
 
 
+         @AuraEnabled(cacheable=true)
 
+         public static List<Reservation__c> getReservationDetails(String ContactId){
+ 
+             //id ContactId
+             return [SELECT Id , Number_Of_Guests__c, Number_of_Reserved_Rooms__c,Reservation_Begin__c,Reservation_End__c,Reservation_Number__c,Status__c,Total_Reservation_Cost__c,Contact__c 
+             FROM Reservation__c 
+             WHERE Contact__c =: ContactId];
+ 
+ 
+         }
+
+
+
+         @AuraEnabled
+	public static List<Reservation__c> getReservations(){
+		return [SELECT Id , Number_Of_Guests__c, Number_of_Reserved_Rooms__c,Reservation_Begin__c,Reservation_End__c,Reservation_Number__c,Status__c,Total_Reservation_Cost__c,Contact__c 
+        FROM Reservation__c 
+         LIMIT 1000];
+	}
 
       
 }

@@ -1,5 +1,5 @@
 import { LightningElement } from 'lwc';
-import img  from '@salesforce/resourceUrl/logoDR' 
+import img  from '@salesforce/resourceUrl/LogoDR' 
 
 export default class Logo extends LightningElement {
 

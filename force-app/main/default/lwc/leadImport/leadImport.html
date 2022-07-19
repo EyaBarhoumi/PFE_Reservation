@@ -1,0 +1,60 @@
+<template>
+    <lightning-card title ="Import Leads" icon-name="action:upload">
+        <template if:true={loading}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </template>
+    <lightning-tabset variant="vertical">
+        <lightning-tab label="Import Leads Format csv ">
+            <div style="margin-left: 3%">
+                <lightning-file-upload accept={acceptedFormats}  
+                                       multiple="multiple" 
+                                       onuploadfinished={handleUploadFinished} 
+                                       record-id={recordId}></lightning-file-upload>
+            </div>
+    
+    
+            <div if:true={error}>
+                {error}
+            </div><br/>
+    
+            <div if:true={data}>
+                <lightning-datatable columns={COLUMNS} 
+                                     data={data} 
+                                     hide-checkbox-column="true" 
+                                     key-field="id"></lightning-datatable>
+            </div>
+        </lightning-tab>
+
+
+
+
+        
+        <lightning-tab label="Import Leads Format xlsx">
+            
+            <div style="margin-left: 3%">
+                <lightning-file-upload accept={acceptedFormatssss}  
+                                       multiple="multiple" 
+                                       onuploadfinished={handleUploadFinished} 
+                                       record-id={recordId}></lightning-file-upload>
+            </div>
+    
+    
+            <div if:true={error}>
+                {error}
+            </div><br/>
+    
+            <div if:true={data}>
+                <lightning-datatable columns={COLUMNS} 
+                                     data={data} 
+                                     hide-checkbox-column="true" 
+                                     key-field="id"></lightning-datatable>
+            </div>
+
+
+
+
+        </lightning-tab>
+        
+    </lightning-tabset>
+</lightning-card>
+</template>
